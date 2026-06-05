@@ -6,7 +6,7 @@
     <title>Admont AI</title>
     <meta
       name="description"
-      content="Admont AI is a free and open-source document platform with Git-backed storage, hybrid search, AI assistance, and MCP integration."
+      content="Admont AI is a free and open-source RAG-first documentation system where AI-assisted writing creates the knowledge base for future documentation."
     />
     <link rel="icon" href="favicon.ico" sizes="any" />
     <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />
@@ -38,11 +38,12 @@
         <section class="hero">
           <div class="hero-copy">
             <p class="eyebrow">Free under MIT. Open source by default.</p>
-            <h1>Git-backed docs, hybrid search, and AI in one place.</h1>
+            <h1>Documentation that compounds through AI.</h1>
             <p class="hero-text">
-              Admont AI is a lightweight document platform for teams that want
-              markdown, version history, search, and AI assistance without
-              giving up control of their content.
+              Admont AI is a RAG-first documentation system. Teams create
+              documentation with AI assistance, then use that documentation as
+              the retrieval base for the next round of writing, answers, and
+              knowledge work.
             </p>
             <div class="hero-actions">
               <a class="button button-primary" href="https://github.com/admont-ai"
@@ -56,8 +57,8 @@
             </div>
             <ul class="proof-points" aria-label="Product highlights">
               <li>MIT licensed</li>
-              <li>Git-backed storage</li>
-              <li>Cloud and self-hosted models</li>
+              <li>AI-assisted documentation generation</li>
+              <li>RAG on your own knowledge base</li>
             </ul>
           </div>
 
@@ -65,10 +66,10 @@
             <div class="panel-card">
               <p class="panel-label">Why teams use it</p>
               <ul class="panel-list">
-                <li>Edit markdown and media in the browser</li>
-                <li>Keep every change in Git with history and diffs</li>
-                <li>Find content with full-text and semantic search</li>
-                <li>Connect AI assistants through MCP</li>
+                <li>Generate new docs from what your team already knows</li>
+                <li>Turn each approved document into future retrieval context</li>
+                <li>Keep the loop auditable in Markdown and Git</li>
+                <li>Expose the same knowledge base to AI assistants through MCP</li>
               </ul>
             </div>
           </aside>
@@ -77,62 +78,66 @@
         <section class="section intro" aria-labelledby="intro-title">
           <div class="section-heading">
             <p class="section-label">Product</p>
-            <h2 id="intro-title">A document engine built around your existing workflow.</h2>
+            <h2 id="intro-title">A new documentation workflow, not just a new editor.</h2>
           </div>
           <p class="section-lead">
-            Admont AI sits between your repositories, search stack, language
-            models, and authentication layer. You write in markdown, store
-            everything in Git, and add AI and search where they are useful
-            instead of rebuilding your workflow around them.
+            The core idea behind Admont AI is recursive documentation
+            generation: AI helps create documentation, that documentation is
+            stored as structured knowledge, and the accumulated knowledge base
+            becomes the source for better future documentation. Git and
+            Markdown are not the product story on their own. They are the best
+            substrate for keeping that loop transparent, durable, and easy to
+            evolve.
           </p>
         </section>
 
         <section class="section" id="features" aria-labelledby="features-title">
           <div class="section-heading">
             <p class="section-label">Features</p>
-            <h2 id="features-title">Core capabilities without the platform weight.</h2>
+            <h2 id="features-title">Everything is built around the RAG authoring loop.</h2>
           </div>
           <div class="feature-grid">
             <article class="feature-card">
-              <h3>Git-backed editing</h3>
+              <h3>AI-assisted generation</h3>
               <p>
-                Store documents in standard Git repositories with commit history,
-                diffs, and restore paths built in.
+                Generate new documentation from prompts, existing documents,
+                and retrieved repository context instead of writing every page
+                from scratch.
               </p>
             </article>
             <article class="feature-card">
-              <h3>Draft workflow</h3>
+              <h3>Compounding knowledge base</h3>
               <p>
-                Save non-destructive drafts, then publish with conflict-aware
-                merging when the underlying file changed.
+                Each accepted document becomes material for later retrieval, so
+                the system improves as the documentation corpus grows.
               </p>
             </article>
             <article class="feature-card">
-              <h3>Hybrid search</h3>
+              <h3>Hybrid retrieval</h3>
               <p>
-                Combine full-text and semantic search to find the right content
-                faster across your knowledge base.
+                Combine full-text and semantic search to pull the most relevant
+                context into answers, generation, and editing flows.
               </p>
             </article>
             <article class="feature-card">
-              <h3>AI assistance</h3>
+              <h3>Markdown as working memory</h3>
               <p>
-                Ask questions, generate content, or polish existing text using
-                cloud-hosted or self-hosted models.
+                Keep documentation in plain Markdown so generated knowledge
+                stays durable, inspectable, and easy to reuse outside the app.
               </p>
             </article>
             <article class="feature-card">
-              <h3>Granular permissions</h3>
+              <h3>Git-backed review and history</h3>
               <p>
-                Control access at the repository, folder, or file level with
-                path-based permission rules.
+                Review, diff, publish, and recover generated content with a
+                workflow that treats documentation as a real engineering asset.
               </p>
             </article>
             <article class="feature-card">
-              <h3>MCP integration</h3>
+              <h3>MCP and assistant access</h3>
               <p>
-                Expose the knowledge base to AI assistants through the Model
-                Context Protocol with authenticated access.
+                Expose the same retrieval-ready documentation base to external
+                AI assistants through the Model Context Protocol.
               </p>
             </article>
           </div>
@@ -145,46 +150,69 @@
         >
           <div class="section-heading">
             <p class="section-label">How It Works</p>
-            <h2 id="architecture-title">Connect storage, search, models, and auth.</h2>
+            <h2 id="architecture-title">Generate, retrieve, refine, repeat.</h2>
           </div>
           <div class="architecture-grid">
             <div class="architecture-copy">
               <p class="section-lead">
-                Admont AI keeps the browser experience simple while integrating
-                with the systems that matter underneath.
+                Admont AI combines models with retrieval over your own
+                repository so new documentation can be grounded in prior work
+                instead of generated in a vacuum.
               </p>
               <div class="stack-list">
                 <div>
-                  <h3>Storage</h3>
-                  <p>Git repositories on local, remote, or S3-compatible backends.</p>
+                  <h3>Generate</h3>
+                  <p>Writers and teams create or refine docs with integrated AI assistance.</p>
                 </div>
                 <div>
-                  <h3>Search</h3>
-                  <p>Hybrid full-text and vector search with pluggable engines.</p>
+                  <h3>Retrieve</h3>
+                  <p>Hybrid search brings the most relevant existing knowledge into the workflow.</p>
                 </div>
                 <div>
-                  <h3>Models</h3>
-                  <p>Use OpenAI, Anthropic, Google, Ollama, and other providers.</p>
+                  <h3>Store</h3>
+                  <p>Approved output lives in Markdown and Git so it stays portable and auditable.</p>
                 </div>
                 <div>
-                  <h3>Access</h3>
-                  <p>OAuth-based authentication and file-level authorization.</p>
+                  <h3>Reuse</h3>
+                  <p>The expanded corpus becomes the retrieval layer for the next generation cycle.</p>
                 </div>
               </div>
             </div>
             <div class="diagram-card" aria-label="Architecture summary">
-              <div class="diagram-node">Browser UI</div>
+              <div class="diagram-node">AI-Assisted Authoring</div>
               <div class="diagram-line"></div>
               <div class="diagram-row">
-                <div class="diagram-node">Git</div>
-                <div class="diagram-node">Search</div>
+                <div class="diagram-node">RAG Search</div>
+                <div class="diagram-node">Markdown + Git</div>
               </div>
               <div class="diagram-row">
                 <div class="diagram-node">LLMs</div>
-                <div class="diagram-node">MCP</div>
+                <div class="diagram-node">MCP Reuse</div>
               </div>
             </div>
           </div>
+        </section>
+
+        <section class="section homage" id="homage" aria-labelledby="homage-title">
+          <div class="section-heading">
+            <p class="section-label">Homage</p>
+            <h2 id="homage-title">Named in tribute to the Admont Abbey library.</h2>
+          </div>
+          <p class="section-lead">
+            Admont AI takes its name from the Admont Abbey library in Austria,
+            a place shaped by the long human tradition of collecting,
+            preserving, and sharing knowledge. The project is a modern homage
+            to that idea: documentation as a living body of knowledge that can
+            be expanded, retrieved, and passed forward.
+          </p>
+          <p class="homage-link-row">
+            <a
+              class="homage-link"
+              href="https://stiftadmont.at/en/about-the-abbey-library/"
+            >
+              Read about the Admont Abbey library
+            </a>
+          </p>
         </section>
 
         <section
@@ -218,7 +246,7 @@
       </main>
 
       <footer class="site-footer">
-        <p>Admont AI is an open-source document platform built for Git-backed knowledge work.</p>
+        <p>Admont AI is an open-source RAG-first documentation system for AI-assisted knowledge creation.</p>
         <p class="footer-links">
           <a href="https://github.com/admont-ai">GitHub</a>
           <a href="https://github.com/admont-ai/admont-ai-docs">Docs</a>

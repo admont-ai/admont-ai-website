@@ -241,6 +241,29 @@ ul {
   font-size: 1.05rem;
 }
 
+.homage-link-row {
+  margin-top: 1.2rem;
+}
+
+.homage-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.8rem 1rem;
+  border: 1px solid rgba(15, 118, 110, 0.22);
+  border-radius: var(--radius-sm);
+  background: rgba(15, 118, 110, 0.08);
+  color: var(--accent-strong);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 0.16em;
+}
+
+.homage-link::after {
+  content: "↗";
+  font-size: 0.95em;
+}
+
 .feature-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
