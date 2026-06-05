@@ -29,6 +29,7 @@
         <nav class="site-nav" aria-label="Primary">
           <a href="#features">Features</a>
           <a href="#architecture">How It Works</a>
+          <a href="#security">Security</a>
           <a href="#open-source">Open Source</a>
           <a href="https://github.com/admont-ai/admont-ai-docs">Docs</a>
         </nav>
@@ -59,6 +60,7 @@
               <li>MIT licensed</li>
               <li>AI-assisted documentation generation</li>
               <li>RAG on your own knowledge base</li>
+              <li>Built for teams and organizations</li>
             </ul>
           </div>
 
@@ -127,10 +129,11 @@
               </p>
             </article>
             <article class="feature-card">
-              <h3>Git-backed review and history</h3>
+              <h3>Team review and history</h3>
               <p>
                 Review, diff, publish, and recover generated content with a
-                workflow that treats documentation as a real engineering asset.
+                workflow that treats documentation as a shared organizational
+                asset.
               </p>
             </article>
             <article class="feature-card">
@@ -190,6 +193,65 @@
                 <div class="diagram-node">MCP Reuse</div>
               </div>
             </div>
+          </div>
+        </section>
+
+        <section class="section security" id="security" aria-labelledby="security-title">
+          <div class="section-heading">
+            <p class="section-label">Security</p>
+            <h2 id="security-title">Built for teams that need controlled knowledge sharing.</h2>
+          </div>
+          <p class="section-lead">
+            Admont AI is designed for teams and organizations where
+            documentation should be easy to generate and reuse, but never lose
+            on access control. Security runs through the full workflow:
+            authentication, repository visibility, file-level permissions, and
+            MCP access for external assistants.
+          </p>
+          <div class="feature-grid">
+            <article class="feature-card">
+              <h3>OAuth with protected sessions</h3>
+              <p>
+                Browser sign-in uses OAuth 2.0 with PKCE, short-lived auth
+                state, and signed JWT sessions for authenticated access.
+              </p>
+            </article>
+            <article class="feature-card">
+              <h3>Repository and role controls</h3>
+              <p>
+                Separate public, authenticated, and admin-only operations so
+                teams can expose the right knowledge to the right people.
+              </p>
+            </article>
+            <article class="feature-card">
+              <h3>File-level permissions</h3>
+              <p>
+                Apply path-based permissions for files and folders with owner,
+                user, group, and inherited defaults.
+              </p>
+            </article>
+            <article class="feature-card">
+              <h3>Secure MCP access</h3>
+              <p>
+                External assistants connect through a dedicated MCP OAuth flow
+                with dynamic client registration and PKCE-protected token
+                exchange.
+              </p>
+            </article>
+            <article class="feature-card">
+              <h3>Read-only and dotfile protection</h3>
+              <p>
+                Lock repositories down for safe consumption and block access to
+                sensitive internal paths like Git metadata and permission files.
+              </p>
+            </article>
+            <article class="feature-card">
+              <h3>Low-leakage responses</h3>
+              <p>
+                Permission denials can resolve as not found, helping reduce
+                path enumeration and accidental disclosure.
+              </p>
+            </article>
           </div>
         </section>
 
