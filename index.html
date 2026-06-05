@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admont AI</title>
+    <meta
+      name="description"
+      content="Admont AI is a free and open-source document platform with Git-backed storage, hybrid search, AI assistance, and MCP integration."
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="site-header">
+        <a class="brand" href="#top" aria-label="Admont AI home">
+          <span class="brand-mark">A</span>
+          <span class="brand-text">Admont AI</span>
+        </a>
+        <nav class="site-nav" aria-label="Primary">
+          <a href="#features">Features</a>
+          <a href="#architecture">How It Works</a>
+          <a href="#open-source">Open Source</a>
+          <a href="https://github.com/admont-ai/admont-ai-docs">Docs</a>
+        </nav>
+      </header>
+
+      <main id="top">
+        <section class="hero">
+          <div class="hero-copy">
+            <p class="eyebrow">Free under MIT. Open source by default.</p>
+            <h1>Git-backed docs, hybrid search, and AI in one place.</h1>
+            <p class="hero-text">
+              Admont AI is a lightweight document platform for teams that want
+              markdown, version history, search, and AI assistance without
+              giving up control of their content.
+            </p>
+            <div class="hero-actions">
+              <a class="button button-primary" href="https://github.com/admont-ai"
+                >View Source</a
+              >
+              <a
+                class="button button-secondary"
+                href="https://github.com/admont-ai/admont-ai-docs"
+                >Read Docs</a
+              >
+            </div>
+            <ul class="proof-points" aria-label="Product highlights">
+              <li>MIT licensed</li>
+              <li>Git-backed storage</li>
+              <li>Cloud and self-hosted models</li>
+            </ul>
+          </div>
+
+          <aside class="hero-panel" aria-label="Admont AI summary">
+            <div class="panel-card">
+              <p class="panel-label">Why teams use it</p>
+              <ul class="panel-list">
+                <li>Edit markdown and media in the browser</li>
+                <li>Keep every change in Git with history and diffs</li>
+                <li>Find content with full-text and semantic search</li>
+                <li>Connect AI assistants through MCP</li>
+              </ul>
+            </div>
+          </aside>
+        </section>
+
+        <section class="section intro" aria-labelledby="intro-title">
+          <div class="section-heading">
+            <p class="section-label">Product</p>
+            <h2 id="intro-title">A document engine built around your existing workflow.</h2>
+          </div>
+          <p class="section-lead">
+            Admont AI sits between your repositories, search stack, language
+            models, and authentication layer. You write in markdown, store
+            everything in Git, and add AI and search where they are useful
+            instead of rebuilding your workflow around them.
+          </p>
+        </section>
+
+        <section class="section" id="features" aria-labelledby="features-title">
+          <div class="section-heading">
+            <p class="section-label">Features</p>
+            <h2 id="features-title">Core capabilities without the platform weight.</h2>
+          </div>
+          <div class="feature-grid">
+            <article class="feature-card">
+              <h3>Git-backed editing</h3>
+              <p>
+                Store documents in standard Git repositories with commit history,
+                diffs, and restore paths built in.
+              </p>
+            </article>
+            <article class="feature-card">
+              <h3>Draft workflow</h3>
+              <p>
+                Save non-destructive drafts, then publish with conflict-aware
+                merging when the underlying file changed.
+              </p>
+            </article>
+            <article class="feature-card">
+              <h3>Hybrid search</h3>
+              <p>
+                Combine full-text and semantic search to find the right content
+                faster across your knowledge base.
+              </p>
+            </article>
+            <article class="feature-card">
+              <h3>AI assistance</h3>
+              <p>
+                Ask questions, generate content, or polish existing text using
+                cloud-hosted or self-hosted models.
+              </p>
+            </article>
+            <article class="feature-card">
+              <h3>Granular permissions</h3>
+              <p>
+                Control access at the repository, folder, or file level with
+                path-based permission rules.
+              </p>
+            </article>
+            <article class="feature-card">
+              <h3>MCP integration</h3>
+              <p>
+                Expose the knowledge base to AI assistants through the Model
+                Context Protocol with authenticated access.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section
+          class="section architecture"
+          id="architecture"
+          aria-labelledby="architecture-title"
+        >
+          <div class="section-heading">
+            <p class="section-label">How It Works</p>
+            <h2 id="architecture-title">Connect storage, search, models, and auth.</h2>
+          </div>
+          <div class="architecture-grid">
+            <div class="architecture-copy">
+              <p class="section-lead">
+                Admont AI keeps the browser experience simple while integrating
+                with the systems that matter underneath.
+              </p>
+              <div class="stack-list">
+                <div>
+                  <h3>Storage</h3>
+                  <p>Git repositories on local, remote, or S3-compatible backends.</p>
+                </div>
+                <div>
+                  <h3>Search</h3>
+                  <p>Hybrid full-text and vector search with pluggable engines.</p>
+                </div>
+                <div>
+                  <h3>Models</h3>
+                  <p>Use OpenAI, Anthropic, Google, Ollama, and other providers.</p>
+                </div>
+                <div>
+                  <h3>Access</h3>
+                  <p>OAuth-based authentication and file-level authorization.</p>
+                </div>
+              </div>
+            </div>
+            <div class="diagram-card" aria-label="Architecture summary">
+              <div class="diagram-node">Browser UI</div>
+              <div class="diagram-line"></div>
+              <div class="diagram-row">
+                <div class="diagram-node">Git</div>
+                <div class="diagram-node">Search</div>
+              </div>
+              <div class="diagram-row">
+                <div class="diagram-node">LLMs</div>
+                <div class="diagram-node">MCP</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section
+          class="section open-source"
+          id="open-source"
+          aria-labelledby="open-source-title"
+        >
+          <div class="section-heading">
+            <p class="section-label">Open Source</p>
+            <h2 id="open-source-title">Free to use, inspect, and adapt.</h2>
+          </div>
+          <div class="open-source-grid">
+            <div class="open-source-copy">
+              <p class="section-lead">
+                Admont AI is MIT licensed. You can run it yourself, inspect the
+                code, and adapt it to your own stack without a paid gate in the
+                middle.
+              </p>
+            </div>
+            <div class="link-panel">
+              <a href="https://github.com/admont-ai">GitHub org</a>
+              <a href="https://github.com/admont-ai/admont-ai-docs">Documentation</a>
+              <a href="https://github.com/admont-ai/admont-ai-api">API</a>
+              <a href="https://github.com/admont-ai/admont-ai-ui">UI</a>
+              <a href="https://github.com/admont-ai/admont-ai-docs/blob/main/LICENSE"
+                >MIT License</a
+              >
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <p>Admont AI is an open-source document platform built for Git-backed knowledge work.</p>
+        <p class="footer-links">
+          <a href="https://github.com/admont-ai">GitHub</a>
+          <a href="https://github.com/admont-ai/admont-ai-docs">Docs</a>
+          <a href="https://github.com/admont-ai/admont-ai-api">API</a>
+          <a href="https://github.com/admont-ai/admont-ai-ui">UI</a>
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>
