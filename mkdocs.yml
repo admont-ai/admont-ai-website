@@ -18,7 +18,6 @@ theme:
     - navigation.top
     - search.highlight
     - search.share
-    - toc.follow
   palette:
     - scheme: default
       primary: teal
