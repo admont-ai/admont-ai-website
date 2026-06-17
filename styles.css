@@ -12,7 +12,7 @@
   --radius-lg: 28px;
   --radius-md: 18px;
   --radius-sm: 999px;
-  --max-width: 1120px;
+  --max-width: none;
 }
 
 * {
@@ -53,7 +53,7 @@ ul {
 }
 
 .page-shell {
-  width: min(calc(100% - 0.5rem), var(--max-width));
+  width: calc(100% - 0.5rem);
   margin: 0 auto;
   padding: 0 0 2.5rem;
 }
@@ -348,7 +348,7 @@ ul {
 
 @media (max-width: 640px) {
   .page-shell {
-    width: min(calc(100% - 0.25rem), var(--max-width));
+    width: calc(100% - 0.25rem);
   }
 
   .hero {
