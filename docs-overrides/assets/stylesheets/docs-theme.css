@@ -274,7 +274,7 @@ body {
   }
 
   .md-container {
-    height: calc(100vh - 121px);
+    height: calc(100vh - 149px);
     overflow: hidden;
     padding-inline: 0;
   }
