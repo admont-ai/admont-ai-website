@@ -274,9 +274,10 @@ body {
   }
 
   .md-container {
-    height: calc(100vh - 149px);
+    height: calc(100vh - 121px);
     overflow: hidden;
-    padding-inline: 0;
+    padding: 0 0 var(--docs-panel-gap);
+    box-sizing: border-box;
   }
 
   .md-main {
