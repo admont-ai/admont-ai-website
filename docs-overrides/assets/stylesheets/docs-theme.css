@@ -222,6 +222,7 @@ body {
   color: var(--admont-text);
   font-weight: 700;
   padding: 0;
+  position: static;
   white-space: normal;
 }
 
@@ -332,6 +333,13 @@ body {
     height: 100%;
     max-height: none;
   }
+
+  .md-nav--secondary .md-nav__title {
+    background: transparent;
+    box-shadow: none;
+    position: static;
+    top: auto;
+  }
 }
 
 @media screen and (min-width: 76.25em) {
@@ -349,6 +357,14 @@ body {
 
   [dir="ltr"] .md-sidebar__inner {
     padding: 1.1rem 1rem;
+  }
+
+  .md-nav--primary .md-nav__title,
+  .md-nav--lifted > .md-nav__list > .md-nav__item--active > .md-nav__link {
+    background: transparent;
+    box-shadow: none;
+    position: static;
+    top: auto;
   }
 }
 
