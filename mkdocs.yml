@@ -1,0 +1,74 @@
+site_name: Admont AI Documentation
+site_url: https://admont.ai/docs/
+site_description: Documentation for Admont AI, an open-source RAG-first documentation system.
+repo_url: https://github.com/admont-ai/admont-ai-docs
+edit_uri: blob/main/
+docs_dir: ../admont-ai-docs
+site_dir: docs
+
+theme:
+  name: material
+  custom_dir: docs-overrides
+  logo: /assets/admont-ai-icon.png
+  favicon: /assets/admont-ai-icon.png
+  font: false
+  features:
+    - navigation.indexes
+    - navigation.sections
+    - navigation.top
+    - search.highlight
+    - search.share
+    - toc.follow
+  palette:
+    - scheme: default
+      primary: teal
+      accent: teal
+
+plugins:
+  - search
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - pymdownx.details
+  - pymdownx.superfences
+
+nav:
+  - Overview: README.md
+  - Getting Started:
+      - Introduction: Getting Started/Introduction.md
+      - Installation: Getting Started/Installation.md
+      - Configuration: Getting Started/Configuration.md
+      - Quick Start: Getting Started/Quick Start.md
+  - User Guide:
+      - Documents: User Guide/Documents.md
+      - Folders: User Guide/Folders.md
+      - Drafts: User Guide/Drafts.md
+      - File History: User Guide/File History.md
+      - Search: User Guide/Search.md
+      - AI Assistant: User Guide/AI Assistant.md
+      - Media and Uploads: User Guide/Media and Uploads.md
+      - Markdown Intro: User Guide/Markdown Intro.md
+  - Administration:
+      - User Management: Administration/User Management.md
+      - Repository Management: Administration/Repository Management.md
+      - Permissions: Administration/Permissions.md
+  - Security:
+      - Authentication: Security/Authentication.md
+      - Authorization: Security/Authorization.md
+      - MCP Authentication: Security/MCP Authentication.md
+      - Security Review Summary: Security/Security Review Summary.md
+      - Penetration Test Report: Security/Penetration Test Report.md
+  - Architecture:
+      - System Overview: Architecture/System Overview.md
+      - Backend: Architecture/Backend.md
+      - Frontend: Architecture/Frontend.md
+      - Search Engine: Architecture/Search Engine.md
+      - MCP Server: Architecture/MCP Server.md
+      - REST API Reference: Architecture/REST API Reference.md
+  - Developer Guide:
+      - Development Setup: Developer Guide/Development Setup.md
+      - API Integration: Developer Guide/API Integration.md
+      - MCP Integration: Developer Guide/MCP Integration.md
+      - Contributing: Developer Guide/Contributing.md

@@ -1,0 +1,2058 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentation for Admont AI, an open-source RAG-first documentation system.">
+      
+      
+      
+        <link rel="canonical" href="https://admont.ai/docs/Security/Authorization/">
+      
+      
+        <link rel="prev" href="../Authentication/">
+      
+      
+        <link rel="next" href="../MCP%20Authentication/">
+      
+      
+      <link rel="icon" href="/assets/admont-ai-icon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>Authorization - Admont AI Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  
+  <link rel="stylesheet" href="../../assets/stylesheets/docs-theme.css">
+  <script src="/assets/site-header.js" defer></script>
+
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#authorization" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+  <admont-site-header
+    home-url="/"
+    section-root="/"
+    docs-url="/docs/"
+    icon-url="/assets/admont-ai-icon.png"
+  ></admont-site-header>
+
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Admont AI Documentation" class="md-nav__button md-logo" aria-label="Admont AI Documentation" data-md-component="logo">
+      
+  <img src="/assets/admont-ai-icon.png" alt="logo">
+
+    </a>
+    Admont AI Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/admont-ai/admont-ai-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Getting Started
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Getting Started
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Getting%20Started/Introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Getting%20Started/Installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Installation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Getting%20Started/Configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Configuration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Getting%20Started/Quick%20Start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Quick Start
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    User Guide
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            User Guide
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../User%20Guide/Documents/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Documents
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../User%20Guide/Folders/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Folders
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../User%20Guide/Drafts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Drafts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../User%20Guide/File%20History/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    File History
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../User%20Guide/Search/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Search
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../User%20Guide/AI%20Assistant/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AI Assistant
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../User%20Guide/Media%20and%20Uploads/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Media and Uploads
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../User%20Guide/Markdown%20Intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Markdown Intro
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Administration
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Administration
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Administration/User%20Management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    User Management
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Administration/Repository%20Management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Repository Management
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Administration/Permissions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Permissions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Security
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Security
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Authentication/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Authentication
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Authorization
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Authorization
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#endpoint-protection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Endpoint Protection
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Endpoint Protection">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#global-middleware-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      Global Middleware Stack
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cors-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      CORS Configuration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#route-authentication-tiers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Route Authentication Tiers
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Route Authentication Tiers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#public-no-authentication" class="md-nav__link">
+    <span class="md-ellipsis">
+      Public (No Authentication)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jwtauthoptional-enriched-but-not-required" class="md-nav__link">
+    <span class="md-ellipsis">
+      JWTAuthOptional (Enriched but Not Required)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jwtauth-required" class="md-nav__link">
+    <span class="md-ellipsis">
+      JWTAuth (Required)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#admincheck-required-admin-role" class="md-nav__link">
+    <span class="md-ellipsis">
+      AdminCheck (Required + Admin Role)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#per-request-permission-checks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Per-Request Permission Checks
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Per-Request Permission Checks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#permission-check-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Permission Check Flow
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#check-order" class="md-nav__link">
+    <span class="md-ellipsis">
+      Check Order
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security-response-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security Response Pattern
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#required-permission-levels-by-operation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Required Permission Levels by Operation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#document-and-folder-permissions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Document and Folder Permissions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Document and Folder Permissions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#permission-levels" class="md-nav__link">
+    <span class="md-ellipsis">
+      Permission Levels
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#permissions-file-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Permissions File Structure
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resolution-algorithm" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resolution Algorithm
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-behaviors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Behaviors
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#permission-management-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Permission Management Operations
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MCP%20Authentication/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    MCP Authentication
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Security%20Review%20Summary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Security Review Summary
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Penetration%20Test%20Report/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Penetration Test Report
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Architecture
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Architecture
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Architecture/System%20Overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    System Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Architecture/Backend/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Backend
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Architecture/Frontend/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Frontend
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Architecture/Search%20Engine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Search Engine
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Architecture/MCP%20Server/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    MCP Server
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Architecture/REST%20API%20Reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    REST API Reference
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Developer Guide
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Developer Guide
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Developer%20Guide/Development%20Setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Development Setup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Developer%20Guide/API%20Integration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    API Integration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Developer%20Guide/MCP%20Integration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    MCP Integration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Developer%20Guide/Contributing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Contributing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#endpoint-protection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Endpoint Protection
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Endpoint Protection">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#global-middleware-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      Global Middleware Stack
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cors-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      CORS Configuration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#route-authentication-tiers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Route Authentication Tiers
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Route Authentication Tiers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#public-no-authentication" class="md-nav__link">
+    <span class="md-ellipsis">
+      Public (No Authentication)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jwtauthoptional-enriched-but-not-required" class="md-nav__link">
+    <span class="md-ellipsis">
+      JWTAuthOptional (Enriched but Not Required)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jwtauth-required" class="md-nav__link">
+    <span class="md-ellipsis">
+      JWTAuth (Required)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#admincheck-required-admin-role" class="md-nav__link">
+    <span class="md-ellipsis">
+      AdminCheck (Required + Admin Role)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#per-request-permission-checks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Per-Request Permission Checks
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Per-Request Permission Checks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#permission-check-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Permission Check Flow
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#check-order" class="md-nav__link">
+    <span class="md-ellipsis">
+      Check Order
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security-response-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security Response Pattern
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#required-permission-levels-by-operation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Required Permission Levels by Operation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#document-and-folder-permissions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Document and Folder Permissions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Document and Folder Permissions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#permission-levels" class="md-nav__link">
+    <span class="md-ellipsis">
+      Permission Levels
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#permissions-file-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Permissions File Structure
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resolution-algorithm" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resolution Algorithm
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-behaviors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Behaviors
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#permission-management-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Permission Management Operations
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="authorization">Authorization</h1>
+<p>Admont-AI enforces authorization at two levels: <strong>endpoint protection</strong> via middleware tiers and <strong>per-request permission checks</strong> based on file paths, user identity, and role.</p>
+<hr />
+<h2 id="endpoint-protection">Endpoint Protection</h2>
+<p>All HTTP requests pass through a global middleware stack before reaching route-specific authentication layers. Permission checks then occur inside the request handler itself.</p>
+<p><img src="assets/endpoint-protection.svg" alt="Endpoint Protection and Middleware Stack" width="1200" /></p>
+<h3 id="global-middleware-stack">Global Middleware Stack</h3>
+<p>Every request passes through these layers in order:</p>
+<table>
+<thead>
+<tr>
+<th>Middleware</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Recovery</strong></td>
+<td>Catches panics and returns a 500 error instead of crashing the server</td>
+</tr>
+<tr>
+<td><strong>Logging</strong></td>
+<td>Logs request method, path, status, and duration via Logrus</td>
+</tr>
+<tr>
+<td><strong>Gzip</strong></td>
+<td>Compresses responses (disabled for <code>/mcp/</code> SSE endpoints which require uncompressed streaming)</td>
+</tr>
+<tr>
+<td><strong>CORS</strong></td>
+<td>Validates the request origin against a configured allowlist</td>
+</tr>
+</tbody>
+</table>
+<h3 id="cors-configuration">CORS Configuration</h3>
+<p>CORS is configured with an explicit origin allowlist loaded from <code>config.yaml</code>. The configuration is:</p>
+<ul>
+<li><strong>Allowed origins</strong> — Must be explicitly configured (the server exits on startup if empty)</li>
+<li><strong>Allowed methods</strong> — GET, POST, PUT, DELETE, PATCH, OPTIONS</li>
+<li><strong>Allowed headers</strong> — Origin, Content-Type, Authorization</li>
+<li><strong>Credentials</strong> — Enabled (allows cookies for cross-origin requests)</li>
+</ul>
+<h3 id="route-authentication-tiers">Route Authentication Tiers</h3>
+<p>Routes are organized into four authentication tiers:</p>
+<h4 id="public-no-authentication">Public (No Authentication)</h4>
+<p>No JWT is required. These endpoints handle health checks, OAuth flow initiation, API documentation, and MCP OAuth discovery.</p>
+<ul>
+<li><code>GET /health</code></li>
+<li><code>GET /auth/login</code>, <code>GET /auth/callback</code></li>
+<li><code>GET /swagger/*</code></li>
+<li>MCP OAuth endpoints (<code>/mcp/register</code>, <code>/mcp/authorize</code>, <code>/mcp/callback</code>, <code>/mcp/token</code>)</li>
+</ul>
+<h4 id="jwtauthoptional-enriched-but-not-required">JWTAuthOptional (Enriched but Not Required)</h4>
+<p>If a valid JWT is present, the user's identity is extracted into the request context. Anonymous requests pass through without error. This is used for read operations on public repositories where authentication enables personalized results (e.g., draft visibility).</p>
+<ul>
+<li><code>GET /repos</code> — List repositories</li>
+<li><code>GET /repos/:repo</code> — List files</li>
+<li><code>GET /repos/:repo/file/*</code> — Read file content</li>
+<li><code>GET /repos/:repo/fileinfo/*</code>, <code>filehistory/*</code>, <code>filediff/*</code>, <code>fileatcommit/*</code></li>
+<li><code>POST /repos/search</code></li>
+<li><code>POST /ai</code>, <code>GET /ai/models</code></li>
+</ul>
+<h4 id="jwtauth-required">JWTAuth (Required)</h4>
+<p>A valid JWT must be present or the request is rejected with <code>401 Unauthorized</code>. Used for all write operations and user-specific endpoints.</p>
+<ul>
+<li>All file mutations (create, update, delete, move, rename, upload)</li>
+<li>Draft operations (save, publish, discard)</li>
+<li>Folder operations (create, rename, delete, move)</li>
+<li>Permission management</li>
+<li><code>GET /me/*</code> endpoints</li>
+</ul>
+<h4 id="admincheck-required-admin-role">AdminCheck (Required + Admin Role)</h4>
+<p>In addition to a valid JWT, the user must hold an admin role. Non-admin users receive <code>403 Forbidden</code>.</p>
+<ul>
+<li>User management (<code>/admin/users/*</code>)</li>
+<li>Group management (<code>/admin/groups/*</code>)</li>
+<li>Repository configuration (<code>/admin/repos/*</code>)</li>
+<li>Re-clone and reindex triggers</li>
+</ul>
+<hr />
+<h2 id="per-request-permission-checks">Per-Request Permission Checks</h2>
+<p>Beyond route-level authentication, each request handler performs fine-grained permission checks based on the target file, folder, or repository.</p>
+<h3 id="permission-check-flow">Permission Check Flow</h3>
+<p><img src="assets/permission-resolution.svg" alt="Permission Resolution Flow" width="1000" /></p>
+<h3 id="check-order">Check Order</h3>
+<p>The <code>checkPermission()</code> function runs the following checks in sequence:</p>
+<ol>
+<li>
+<p><strong>Read-only repository</strong> — If the repository is configured as read-only, all write operations (Update, Delete) are blocked regardless of user identity.</p>
+</li>
+<li>
+<p><strong>System admin bypass</strong> — Users listed as <code>super_admin</code> in the server configuration bypass all permission checks and receive full access.</p>
+</li>
+<li>
+<p><strong>Dotfile protection</strong> — Access to files or directories starting with <code>.</code> (e.g., <code>.git</code>, <code>.file-permissions.yaml</code>) is always rejected. This prevents access to Git internals and permission configuration through the API.</p>
+</li>
+<li>
+<p><strong>No permissions file</strong> — If the repository has no <code>.file-permissions.yaml</code>:</p>
+</li>
+<li>Authenticated users receive full access (Delete level).</li>
+<li>
+<p>Anonymous users receive read-only access (on public repos).</p>
+</li>
+<li>
+<p><strong>Permission resolver</strong> — If a permissions file exists, the resolver evaluates the user's effective permission level for the requested path.</p>
+</li>
+</ol>
+<h3 id="security-response-pattern">Security Response Pattern</h3>
+<p>Permission denials return <strong>404 Not Found</strong> rather than 403 Forbidden. This prevents path enumeration — an unauthorized user cannot determine whether a file exists by observing different error codes.</p>
+<h3 id="required-permission-levels-by-operation">Required Permission Levels by Operation</h3>
+<table>
+<thead>
+<tr>
+<th>Operation</th>
+<th>Required Level</th>
+<th>Scope</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Read file / file info / history</td>
+<td>Read</td>
+<td>Target file</td>
+</tr>
+<tr>
+<td>Search</td>
+<td>Read</td>
+<td>Matched files</td>
+</tr>
+<tr>
+<td>Create file</td>
+<td>Update</td>
+<td>Parent folder</td>
+</tr>
+<tr>
+<td>Update file / save draft / publish draft</td>
+<td>Update</td>
+<td>Target file</td>
+</tr>
+<tr>
+<td>Rename / move file</td>
+<td>Update</td>
+<td>Both source and destination</td>
+</tr>
+<tr>
+<td>Delete file</td>
+<td>Delete</td>
+<td>Target file</td>
+</tr>
+<tr>
+<td>Create folder</td>
+<td>Update</td>
+<td>Parent folder</td>
+</tr>
+<tr>
+<td>Rename / move folder</td>
+<td>Update</td>
+<td>Both source and destination</td>
+</tr>
+<tr>
+<td>Delete folder</td>
+<td>Delete</td>
+<td>Target folder</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="document-and-folder-permissions">Document and Folder Permissions</h2>
+<p>The permissions system provides granular, file-level access control with hierarchical inheritance. Permissions are stored in a <code>.file-permissions.yaml</code> file at the root of each repository.</p>
+<h3 id="permission-levels">Permission Levels</h3>
+<p>Permissions use a hierarchical model where higher levels include all lower capabilities:</p>
+<table>
+<thead>
+<tr>
+<th>Level</th>
+<th>Value</th>
+<th>Capabilities</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>None</strong></td>
+<td>0</td>
+<td>No access</td>
+</tr>
+<tr>
+<td><strong>Read</strong></td>
+<td>1</td>
+<td>View file content and metadata</td>
+</tr>
+<tr>
+<td><strong>Update</strong></td>
+<td>2</td>
+<td>Read + create, edit, save drafts</td>
+</tr>
+<tr>
+<td><strong>Delete</strong></td>
+<td>3</td>
+<td>Update + delete files and folders</td>
+</tr>
+</tbody>
+</table>
+<h3 id="permissions-file-structure">Permissions File Structure</h3>
+<div class="highlight"><pre><span></span><code><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+
+<span class="nt">root</span><span class="p">:</span><span class="w">                              </span><span class="c1"># Global defaults</span>
+<span class="w">  </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;admin@example.com&quot;</span><span class="w">       </span><span class="c1"># Owner always gets Delete access</span>
+<span class="w">  </span><span class="nt">default</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;read&quot;</span><span class="w">                  </span><span class="c1"># Default for unlisted users</span>
+<span class="w">  </span><span class="nt">users</span><span class="p">:</span><span class="w">                           </span><span class="c1"># Per-user overrides</span>
+<span class="w">    </span><span class="nt">editor@example.com</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;update&quot;</span>
+<span class="w">    </span><span class="nt">viewer@example.com</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;read&quot;</span>
+<span class="w">  </span><span class="nt">groups</span><span class="p">:</span><span class="w">                          </span><span class="c1"># Per-group overrides</span>
+<span class="w">    </span><span class="nt">editors</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;update&quot;</span>
+<span class="w">    </span><span class="nt">viewers</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;read&quot;</span>
+
+<span class="nt">groups</span><span class="p">:</span><span class="w">                            </span><span class="c1"># Group membership definitions</span>
+<span class="w">  </span><span class="nt">editors</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">alice@example.com</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bob@example.com</span>
+<span class="w">  </span><span class="nt">viewers</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">charlie@example.com</span>
+
+<span class="nt">paths</span><span class="p">:</span><span class="w">                             </span><span class="c1"># Path-specific permissions</span>
+<span class="w">  </span><span class="s">&quot;private/&quot;</span><span class="p p-Indicator">:</span><span class="w">                      </span><span class="c1"># Folder (trailing slash)</span>
+<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;alice@example.com&quot;</span>
+<span class="w">    </span><span class="nt">default</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;none&quot;</span><span class="w">                </span><span class="c1"># No access by default</span>
+<span class="w">    </span><span class="nt">users</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">bob@example.com</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;read&quot;</span>
+<span class="w">    </span><span class="nt">groups</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">editors</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;update&quot;</span>
+<span class="w">  </span><span class="s">&quot;private/secret.md&quot;</span><span class="p p-Indicator">:</span><span class="w">            </span><span class="c1"># Specific file</span>
+<span class="w">    </span><span class="nt">default</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;none&quot;</span>
+<span class="w">    </span><span class="nt">users</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">alice@example.com</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;delete&quot;</span>
+</code></pre></div>
+<h3 id="resolution-algorithm">Resolution Algorithm</h3>
+<p>When checking a user's permission for a path, the resolver evaluates in this order:</p>
+<p><strong>For each path level (exact match -&gt; parent folders -&gt; root):</strong></p>
+<ol>
+<li><strong>Owner</strong> — If the user is the owner of the path entry, they receive Delete (full) access.</li>
+<li><strong>Users</strong> — If the user's email appears in the <code>users</code> map, the specified level is returned.</li>
+<li><strong>Groups</strong> — If the user belongs to any group listed in the <code>groups</code> map, the highest group permission is returned.</li>
+<li><strong>Default</strong> — The <code>default</code> level for that path entry is returned.</li>
+</ol>
+<p><strong>Path walking:</strong></p>
+<ul>
+<li>First, check for an exact match on the file path.</li>
+<li>If no match, walk up parent folders (nearest ancestor first). For example, for the path <code>docs/guides/setup.md</code>, the resolver checks: <code>docs/guides/</code> -&gt; <code>docs/</code> -&gt; root.</li>
+<li>If no folder matches, fall back to the <code>root</code> entry.</li>
+<li>If nothing matches at all, return <code>None</code> (no access).</li>
+</ul>
+<h3 id="key-behaviors">Key Behaviors</h3>
+<ul>
+<li><strong>Inheritance</strong> — Child paths inherit permissions from the nearest parent unless explicitly overridden.</li>
+<li><strong>Owner privilege</strong> — Owners always receive full (Delete) access to their path entry.</li>
+<li><strong>Group resolution</strong> — A user in multiple groups receives the highest permission from any matching group.</li>
+<li><strong>Folder convention</strong> — Folder paths are stored with a trailing slash (e.g., <code>docs/</code>) to distinguish them from file paths.</li>
+<li><strong>Thread safety</strong> — The permission resolver uses a read-write mutex (<code>sync.RWMutex</code>) for safe concurrent access.</li>
+<li><strong>Atomic persistence</strong> — Permission file saves use a write-to-temp + rename pattern to prevent corruption on crash.</li>
+</ul>
+<h3 id="permission-management-operations">Permission Management Operations</h3>
+<p>Permissions can be managed through the REST API:</p>
+<table>
+<thead>
+<tr>
+<th>Operation</th>
+<th>Endpoint</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Initialize permissions</td>
+<td><code>POST /repos/:repo/permissions/init</code></td>
+</tr>
+<tr>
+<td>Set file/folder permissions</td>
+<td><code>PUT /repos/:repo/permissions/*path</code></td>
+</tr>
+<tr>
+<td>Remove file/folder permissions</td>
+<td><code>DELETE /repos/:repo/permissions/*path</code></td>
+</tr>
+<tr>
+<td>Create group</td>
+<td><code>POST /repos/:repo/groups/:name</code></td>
+</tr>
+<tr>
+<td>Update group members</td>
+<td><code>PUT /repos/:repo/groups/:name</code></td>
+</tr>
+<tr>
+<td>Delete group</td>
+<td><code>DELETE /repos/:repo/groups/:name</code></td>
+</tr>
+</tbody>
+</table>
+<p>When a file or folder is <strong>renamed or moved</strong>, its permission entry is automatically updated to reflect the new path. When a folder is <strong>deleted</strong>, all permission entries under that path are also removed.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.indexes", "navigation.sections", "navigation.top", "search.highlight", "search.share", "toc.follow"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+    
+  </body>
+</html>

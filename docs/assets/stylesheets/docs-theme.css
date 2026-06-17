@@ -1,0 +1,291 @@
+:root {
+  --admont-bg: #f5f1e8;
+  --admont-bg-strong: #efe7d6;
+  --admont-surface: rgba(255, 252, 245, 0.86);
+  --admont-surface-strong: #fffaf0;
+  --admont-text: #1f2321;
+  --admont-muted: #5d645d;
+  --admont-line: rgba(31, 35, 33, 0.12);
+  --admont-accent: #0f766e;
+  --admont-accent-strong: #134e4a;
+  --admont-shadow: 0 18px 50px rgba(34, 39, 35, 0.08);
+  --admont-radius-lg: 28px;
+  --admont-radius-md: 18px;
+  --admont-radius-sm: 999px;
+  --md-text-font: "Avenir Next", Avenir, "Segoe UI", sans-serif;
+  --md-code-font: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+}
+
+[data-md-color-scheme="default"] {
+  --md-default-bg-color: transparent;
+  --md-default-fg-color: var(--admont-text);
+  --md-default-fg-color--light: var(--admont-muted);
+  --md-default-fg-color--lighter: rgba(93, 100, 93, 0.72);
+  --md-primary-fg-color: var(--admont-accent-strong);
+  --md-primary-fg-color--light: var(--admont-accent);
+  --md-primary-fg-color--dark: #0b3f3a;
+  --md-accent-fg-color: var(--admont-accent);
+  --md-typeset-a-color: var(--admont-accent-strong);
+  --md-code-bg-color: rgba(255, 250, 240, 0.9);
+  --md-code-fg-color: #26312d;
+  --md-footer-bg-color: transparent;
+  --md-footer-bg-color--dark: transparent;
+}
+
+html {
+  background:
+    radial-gradient(circle at top left, rgba(15, 118, 110, 0.14), transparent 28%),
+    radial-gradient(circle at right 20%, rgba(180, 83, 9, 0.1), transparent 24%),
+    linear-gradient(180deg, #fbf7ef 0%, var(--admont-bg) 100%);
+  background-attachment: fixed;
+}
+
+body {
+  color: var(--admont-text);
+  background: transparent;
+  font-family: var(--md-text-font);
+}
+
+.md-grid {
+  max-width: 70rem;
+}
+
+.md-nav__button.md-logo img {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 0.8rem;
+  object-fit: contain;
+  box-shadow: 0 8px 24px rgba(19, 78, 74, 0.12);
+}
+
+.md-tabs__link,
+.md-nav__link,
+.md-search__input {
+  color: var(--admont-muted);
+}
+
+.md-tabs__link:hover,
+.md-nav__link:hover,
+.md-nav__link--active,
+.md-nav__item .md-nav__link--active,
+.md-typeset a:hover {
+  color: var(--admont-accent-strong);
+}
+
+.md-container {
+  background: transparent;
+}
+
+.md-main {
+  padding-top: 1.2rem;
+}
+
+.md-content {
+  border: 1px solid var(--admont-line);
+  border-radius: var(--admont-radius-lg);
+  background: var(--admont-surface);
+  box-shadow: var(--admont-shadow);
+}
+
+.md-content__inner {
+  margin: 0;
+  padding: 1.7rem;
+}
+
+.md-content__inner::before {
+  height: 0;
+}
+
+.md-typeset {
+  color: var(--admont-text);
+  font-size: 0.82rem;
+  line-height: 1.65;
+}
+
+.md-typeset h1,
+.md-typeset h2,
+.md-typeset h3 {
+  color: var(--admont-text);
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+.md-typeset h1 {
+  margin-bottom: 1rem;
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  line-height: 0.98;
+}
+
+.md-typeset h2 {
+  margin-top: 2.1rem;
+  font-size: clamp(1.55rem, 3vw, 2.25rem);
+  line-height: 1.05;
+}
+
+.md-typeset h3 {
+  margin-top: 1.5rem;
+  font-size: 1.08rem;
+}
+
+.md-typeset p,
+.md-typeset li {
+  color: var(--admont-muted);
+}
+
+.md-typeset strong {
+  color: var(--admont-text);
+}
+
+.md-typeset a {
+  color: var(--admont-accent-strong);
+  text-decoration: underline;
+  text-underline-offset: 0.16em;
+}
+
+.md-typeset hr {
+  border-bottom-color: var(--admont-line);
+}
+
+.md-typeset img,
+.md-typeset svg {
+  border-radius: var(--admont-radius-md);
+}
+
+.md-typeset table:not([class]) {
+  border: 1px solid var(--admont-line);
+  border-radius: var(--admont-radius-md);
+  background: rgba(255, 252, 245, 0.72);
+  box-shadow: none;
+  overflow: hidden;
+}
+
+.md-typeset table:not([class]) th {
+  background: rgba(15, 118, 110, 0.08);
+  color: var(--admont-accent-strong);
+}
+
+.md-typeset table:not([class]) td,
+.md-typeset table:not([class]) th {
+  border-color: var(--admont-line);
+}
+
+.md-typeset code,
+.md-typeset pre {
+  border-radius: 0.7rem;
+}
+
+.md-typeset pre > code {
+  border: 1px solid var(--admont-line);
+  background: rgba(255, 250, 240, 0.92);
+}
+
+.md-typeset .admonition,
+.md-typeset details {
+  border: 1px solid var(--admont-line);
+  border-radius: var(--admont-radius-md);
+  background: rgba(255, 252, 245, 0.78);
+  box-shadow: none;
+  overflow: hidden;
+}
+
+.md-typeset .admonition-title,
+.md-typeset summary {
+  background: rgba(15, 118, 110, 0.08);
+}
+
+.md-sidebar__scrollwrap {
+  scrollbar-color: rgba(19, 78, 74, 0.24) transparent;
+}
+
+.md-sidebar--primary .md-sidebar__inner,
+.md-sidebar--secondary .md-sidebar__inner {
+  border: 1px solid var(--admont-line);
+  border-radius: var(--admont-radius-lg);
+  background: rgba(255, 250, 240, 0.56);
+  box-shadow: 0 10px 32px rgba(34, 39, 35, 0.04);
+}
+
+.md-nav__title {
+  color: var(--admont-text);
+  font-weight: 700;
+}
+
+.md-nav__link {
+  border-radius: 0.75rem;
+}
+
+.md-nav__link:focus,
+.md-nav__link:hover {
+  background: rgba(15, 118, 110, 0.08);
+}
+
+.md-search__form {
+  border: 1px solid var(--admont-line);
+  border-radius: var(--admont-radius-sm);
+  background: rgba(255, 252, 245, 0.86);
+}
+
+.md-search__form:hover,
+.md-search__form:focus-within {
+  background: var(--admont-surface-strong);
+  box-shadow: 0 10px 30px rgba(19, 78, 74, 0.12);
+}
+
+.md-search__output {
+  border: 1px solid var(--admont-line);
+  border-radius: var(--admont-radius-md);
+  background: var(--admont-surface-strong);
+  box-shadow: var(--admont-shadow);
+}
+
+.md-footer {
+  margin-top: 1.4rem;
+  color: var(--admont-muted);
+}
+
+.md-footer-meta {
+  background: transparent;
+}
+
+.md-footer__inner {
+  padding-inline: 0.2rem;
+}
+
+.md-footer__link {
+  border: 1px solid var(--admont-line);
+  border-radius: var(--admont-radius-md);
+  background: rgba(255, 252, 245, 0.62);
+}
+
+.md-top {
+  border-radius: var(--admont-radius-sm);
+  background: var(--admont-accent-strong);
+  color: #f7faf9;
+}
+
+@media screen and (max-width: 76.1875em) {
+  .md-sidebar--primary .md-sidebar__inner {
+    border: 0;
+    border-radius: 0;
+    background: var(--admont-surface-strong);
+    box-shadow: none;
+  }
+}
+
+@media screen and (max-width: 44.984375em) {
+  .md-main {
+    padding-top: 0.7rem;
+  }
+
+  .md-content {
+    border-radius: 1.4rem;
+  }
+
+  .md-content__inner {
+    padding: 1.15rem;
+  }
+
+  .md-typeset h1 {
+    font-size: clamp(2.1rem, 13vw, 3.2rem);
+  }
+}

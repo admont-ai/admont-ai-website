@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 520" font-family="Segoe UI, Arial, sans-serif" font-size="12">
+  <defs>
+    <marker id="a" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#475569"/></marker>
+    <filter id="s" x="-2%" y="-2%" width="104%" height="104%"><feDropShadow dx="1" dy="1" stdDeviation="2" flood-opacity="0.08"/></filter>
+  </defs>
+
+  <text x="440" y="28" text-anchor="middle" font-size="17" font-weight="bold" fill="#1e293b">Endpoint Protection &amp; Middleware Stack</text>
+
+  <!-- Incoming request -->
+  <rect x="30" y="55" width="140" height="40" rx="20" fill="#f8fafc" stroke="#94a3b8" stroke-width="2" filter="url(#s)" />
+  <text x="100" y="80" text-anchor="middle" font-weight="bold" font-size="13" fill="#334155">HTTP Request</text>
+
+  <line x1="170" y1="75" x2="210" y2="75" stroke="#475569" stroke-width="1.5" marker-end="url(#a)" />
+
+  <!-- Global middleware -->
+  <rect x="215" y="50" width="100" height="50" rx="8" fill="#e0e7ff" stroke="#6366f1" stroke-width="1.5" filter="url(#s)" />
+  <text x="265" y="72" text-anchor="middle" font-weight="600" font-size="11" fill="#4338ca">CORS</text>
+  <text x="265" y="86" text-anchor="middle" font-size="10" fill="#64748b">Origin check</text>
+
+  <line x1="315" y1="75" x2="335" y2="75" stroke="#475569" stroke-width="1.5" marker-end="url(#a)" />
+
+  <rect x="340" y="50" width="100" height="50" rx="8" fill="#e0e7ff" stroke="#6366f1" stroke-width="1.5" filter="url(#s)" />
+  <text x="390" y="72" text-anchor="middle" font-weight="600" font-size="11" fill="#4338ca">Gzip</text>
+  <text x="390" y="86" text-anchor="middle" font-size="10" fill="#64748b">Compression</text>
+
+  <line x1="440" y1="75" x2="460" y2="75" stroke="#475569" stroke-width="1.5" marker-end="url(#a)" />
+
+  <rect x="465" y="50" width="100" height="50" rx="8" fill="#e0e7ff" stroke="#6366f1" stroke-width="1.5" filter="url(#s)" />
+  <text x="515" y="72" text-anchor="middle" font-weight="600" font-size="11" fill="#4338ca">Logging</text>
+  <text x="515" y="86" text-anchor="middle" font-size="10" fill="#64748b">Logrus</text>
+
+  <line x1="565" y1="75" x2="585" y2="75" stroke="#475569" stroke-width="1.5" marker-end="url(#a)" />
+
+  <rect x="590" y="50" width="100" height="50" rx="8" fill="#e0e7ff" stroke="#6366f1" stroke-width="1.5" filter="url(#s)" />
+  <text x="640" y="72" text-anchor="middle" font-weight="600" font-size="11" fill="#4338ca">Recovery</text>
+  <text x="640" y="86" text-anchor="middle" font-size="10" fill="#64748b">Panic handler</text>
+
+  <!-- Divider -->
+  <line x1="30" y1="120" x2="850" y2="120" stroke="#e2e8f0" stroke-width="1" />
+  <text x="440" y="140" text-anchor="middle" font-size="12" font-weight="600" fill="#64748b">Route-Specific Authentication Layer</text>
+
+  <!-- Public routes -->
+  <rect x="30" y="160" width="190" height="145" rx="10" fill="#f0fdf4" stroke="#22c55e" stroke-width="2" filter="url(#s)" />
+  <text x="125" y="182" text-anchor="middle" font-weight="bold" font-size="13" fill="#166534">Public</text>
+  <text x="125" y="196" text-anchor="middle" font-size="10" fill="#64748b">No authentication required</text>
+  <line x1="40" y1="205" x2="210" y2="205" stroke="#dcfce7" stroke-width="1" />
+  <text x="50" y="222" font-size="11" fill="#334155">GET /health</text>
+  <text x="50" y="238" font-size="11" fill="#334155">GET /auth/login</text>
+  <text x="50" y="254" font-size="11" fill="#334155">GET /auth/callback</text>
+  <text x="50" y="270" font-size="11" fill="#334155">GET /swagger/*</text>
+  <text x="50" y="286" font-size="11" fill="#334155">MCP OAuth endpoints</text>
+
+  <!-- Optional auth routes -->
+  <rect x="240" y="160" width="210" height="145" rx="10" fill="#fef3c7" stroke="#f59e0b" stroke-width="2" filter="url(#s)" />
+  <text x="345" y="182" text-anchor="middle" font-weight="bold" font-size="13" fill="#92400e">JWTAuthOptional</text>
+  <text x="345" y="196" text-anchor="middle" font-size="10" fill="#64748b">Auth enriches, not required</text>
+  <line x1="250" y1="205" x2="440" y2="205" stroke="#fef3c7" stroke-width="1" />
+  <text x="255" y="222" font-size="11" fill="#334155">GET /repos (list repos)</text>
+  <text x="255" y="238" font-size="11" fill="#334155">GET /repos/:repo (file tree)</text>
+  <text x="255" y="254" font-size="11" fill="#334155">GET /repos/:repo/file/*</text>
+  <text x="255" y="270" font-size="11" fill="#334155">POST /repos/search</text>
+  <text x="255" y="286" font-size="11" fill="#334155">POST /ai, GET /ai/models</text>
+
+  <!-- Required auth routes -->
+  <rect x="470" y="160" width="185" height="145" rx="10" fill="#fce7f3" stroke="#ec4899" stroke-width="2" filter="url(#s)" />
+  <text x="562" y="182" text-anchor="middle" font-weight="bold" font-size="13" fill="#9d174d">JWTAuth</text>
+  <text x="562" y="196" text-anchor="middle" font-size="10" fill="#64748b">Valid JWT required (401)</text>
+  <line x1="480" y1="205" x2="645" y2="205" stroke="#fce7f3" stroke-width="1" />
+  <text x="482" y="222" font-size="11" fill="#334155">POST/PUT/DEL file ops</text>
+  <text x="482" y="238" font-size="11" fill="#334155">Draft save/publish</text>
+  <text x="482" y="254" font-size="11" fill="#334155">Folder operations</text>
+  <text x="482" y="270" font-size="11" fill="#334155">Permission mgmt</text>
+  <text x="482" y="286" font-size="11" fill="#334155">GET /me/*</text>
+
+  <!-- Admin routes -->
+  <rect x="675" y="160" width="175" height="145" rx="10" fill="#ede9fe" stroke="#8b5cf6" stroke-width="2" filter="url(#s)" />
+  <text x="762" y="182" text-anchor="middle" font-weight="bold" font-size="13" fill="#5b21b6">AdminCheck</text>
+  <text x="762" y="196" text-anchor="middle" font-size="10" fill="#64748b">JWT + admin role (403)</text>
+  <line x1="685" y1="205" x2="840" y2="205" stroke="#ede9fe" stroke-width="1" />
+  <text x="688" y="222" font-size="11" fill="#334155">User management</text>
+  <text x="688" y="238" font-size="11" fill="#334155">Group management</text>
+  <text x="688" y="254" font-size="11" fill="#334155">Repo configuration</text>
+  <text x="688" y="270" font-size="11" fill="#334155">Reclone / Reindex</text>
+  <text x="688" y="286" font-size="11" fill="#334155">DELETE /admin/repos/*</text>
+
+  <!-- Divider -->
+  <line x1="30" y1="325" x2="850" y2="325" stroke="#e2e8f0" stroke-width="1" />
+  <text x="440" y="345" text-anchor="middle" font-size="12" font-weight="600" fill="#64748b">Per-Request Permission Checks (in Handler)</text>
+
+  <!-- Handler-level checks -->
+  <rect x="30" y="360" width="250" height="135" rx="10" fill="#fff7ed" stroke="#f97316" stroke-width="1.5" filter="url(#s)" />
+  <text x="155" y="382" text-anchor="middle" font-weight="bold" font-size="13" fill="#c2410c">RepoAccessCheck</text>
+  <line x1="40" y1="392" x2="270" y2="392" stroke="#fed7aa" stroke-width="1" />
+  <text x="50" y="410" font-size="11" fill="#334155">1. Is repository public?</text>
+  <text x="50" y="428" font-size="11" fill="#334155">2. If not → require authentication</text>
+  <text x="50" y="446" font-size="11" fill="#334155">3. Return 404 if repo not found</text>
+  <text x="50" y="464" font-size="11" fill="#334155">4. Return 401 if not authenticated</text>
+  <text x="50" y="482" font-size="11" fill="#64748b">Applied to all read operations</text>
+
+  <rect x="310" y="360" width="260" height="135" rx="10" fill="#fff7ed" stroke="#f97316" stroke-width="1.5" filter="url(#s)" />
+  <text x="440" y="382" text-anchor="middle" font-weight="bold" font-size="13" fill="#c2410c">checkPermission()</text>
+  <line x1="320" y1="392" x2="560" y2="392" stroke="#fed7aa" stroke-width="1" />
+  <text x="325" y="410" font-size="11" fill="#334155">1. Block writes on read-only repos</text>
+  <text x="325" y="428" font-size="11" fill="#334155">2. System admin → bypass</text>
+  <text x="325" y="446" font-size="11" fill="#334155">3. Reject dotfile access</text>
+  <text x="325" y="464" font-size="11" fill="#334155">4. Resolve file-level permission</text>
+  <text x="325" y="482" font-size="11" fill="#64748b">Returns 404 (hides existence)</text>
+
+  <rect x="600" y="360" width="250" height="135" rx="10" fill="#fff7ed" stroke="#f97316" stroke-width="1.5" filter="url(#s)" />
+  <text x="725" y="382" text-anchor="middle" font-weight="bold" font-size="13" fill="#c2410c">Required Levels</text>
+  <line x1="610" y1="392" x2="840" y2="392" stroke="#fed7aa" stroke-width="1" />
+  <text x="618" y="410" font-size="11" fill="#334155">GET file/info/history → Read</text>
+  <text x="618" y="428" font-size="11" fill="#334155">POST create file → Update (parent)</text>
+  <text x="618" y="446" font-size="11" fill="#334155">PUT update/draft → Update</text>
+  <text x="618" y="464" font-size="11" fill="#334155">DELETE file/folder → Delete</text>
+  <text x="618" y="482" font-size="11" fill="#334155">PATCH move → Update (src + dest)</text>
+</svg>

@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 580" font-family="Segoe UI, Arial, sans-serif" font-size="13">
+  <defs>
+    <marker id="a" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#64748b"/></marker>
+    <filter id="s" x="-2%" y="-2%" width="104%" height="104%"><feDropShadow dx="1" dy="1" stdDeviation="2" flood-opacity="0.08"/></filter>
+  </defs>
+
+  <!-- Title -->
+  <text x="410" y="30" text-anchor="middle" font-size="17" font-weight="bold" fill="#1e293b">Editing and Publishing a Document</text>
+
+  <!-- Step 1: Navigate -->
+  <rect x="20" y="55" width="780" height="70" rx="10" fill="#eff6ff" stroke="#3b82f6" stroke-width="1.5" filter="url(#s)"/>
+  <circle cx="55" cy="90" r="20" fill="#3b82f6"/>
+  <text x="55" y="96" text-anchor="middle" font-weight="bold" font-size="16" fill="#ffffff">1</text>
+  <text x="85" y="82" font-weight="bold" font-size="14" fill="#1e40af">Navigate</text>
+  <text x="85" y="100" font-size="12" fill="#475569">User opens /{repo}/path/file.md → Frontend parses URL, fetches content + metadata via REST API</text>
+  <text x="85" y="116" font-size="12" fill="#475569">→ MDXEditor renders the document in the browser</text>
+
+  <!-- Arrow -->
+  <line x1="410" y1="125" x2="410" y2="145" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#a)"/>
+
+  <!-- Step 2: Edit -->
+  <rect x="20" y="150" width="780" height="70" rx="10" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5" filter="url(#s)"/>
+  <circle cx="55" cy="185" r="20" fill="#f59e0b"/>
+  <text x="55" y="191" text-anchor="middle" font-weight="bold" font-size="16" fill="#ffffff">2</text>
+  <text x="85" y="177" font-weight="bold" font-size="14" fill="#92400e">Edit</text>
+  <text x="85" y="195" font-size="12" fill="#475569">User types changes → Auto-save calls PUT /repos/{repo}/draft/{path}</text>
+  <text x="85" y="211" font-size="12" fill="#475569">→ Draft stored in .drafts/ on disk (git-ignored) → UI shows "Draft" indicator</text>
+
+  <!-- Arrow -->
+  <line x1="410" y1="220" x2="410" y2="240" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#a)"/>
+
+  <!-- Step 3: Publish -->
+  <rect x="20" y="245" width="780" height="80" rx="10" fill="#f0fdf4" stroke="#22c55e" stroke-width="1.5" filter="url(#s)"/>
+  <circle cx="55" cy="285" r="20" fill="#22c55e"/>
+  <text x="55" y="291" text-anchor="middle" font-weight="bold" font-size="16" fill="#ffffff">3</text>
+  <text x="85" y="272" font-weight="bold" font-size="14" fill="#166534">Publish</text>
+  <text x="85" y="290" font-size="12" fill="#475569">User clicks Publish → POST /repos/{repo}/draft/publish/{path}</text>
+  <text x="85" y="306" font-size="12" fill="#475569">→ Server performs three-way merge (base commit ↔ HEAD ↔ draft)</text>
+  <text x="85" y="322" font-size="12" fill="#475569">→ On success: content committed to Git, draft deleted · On conflict: merge markers returned</text>
+
+  <!-- Arrow -->
+  <line x1="410" y1="325" x2="410" y2="345" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#a)"/>
+
+  <!-- Step 4: Index -->
+  <rect x="20" y="350" width="780" height="70" rx="10" fill="#fce7f3" stroke="#ec4899" stroke-width="1.5" filter="url(#s)"/>
+  <circle cx="55" cy="385" r="20" fill="#ec4899"/>
+  <text x="55" y="391" text-anchor="middle" font-weight="bold" font-size="16" fill="#ffffff">4</text>
+  <text x="85" y="377" font-weight="bold" font-size="14" fill="#9d174d">Reindex</text>
+  <text x="85" y="395" font-size="12" fill="#475569">Indexer detects committed file change → Re-chunks the markdown, generates new embeddings</text>
+  <text x="85" y="411" font-size="12" fill="#475569">→ Updates PostgreSQL search_chunks table</text>
+
+  <!-- Arrow -->
+  <line x1="410" y1="420" x2="410" y2="440" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#a)"/>
+
+  <!-- Step 5: Available -->
+  <rect x="20" y="445" width="780" height="70" rx="10" fill="#ede9fe" stroke="#8b5cf6" stroke-width="1.5" filter="url(#s)"/>
+  <circle cx="55" cy="480" r="20" fill="#8b5cf6"/>
+  <text x="55" y="486" text-anchor="middle" font-weight="bold" font-size="16" fill="#ffffff">5</text>
+  <text x="85" y="472" font-weight="bold" font-size="14" fill="#5b21b6">Discoverable</text>
+  <text x="85" y="490" font-size="12" fill="#475569">AI assistant or MCP client can now find the updated content</text>
+  <text x="85" y="506" font-size="12" fill="#475569">→ Via hybrid search tool or direct file read through MCP / REST API</text>
+
+  <!-- Side labels showing systems involved -->
+  <rect x="620" y="62" width="160" height="24" rx="6" fill="#dbeafe"/>
+  <text x="700" y="79" text-anchor="middle" font-size="11" font-weight="600" fill="#1e40af">Frontend + REST API</text>
+
+  <rect x="620" y="157" width="160" height="24" rx="6" fill="#fef3c7"/>
+  <text x="700" y="174" text-anchor="middle" font-size="11" font-weight="600" fill="#92400e">Draft Manager</text>
+
+  <rect x="620" y="252" width="160" height="24" rx="6" fill="#dcfce7"/>
+  <text x="700" y="269" text-anchor="middle" font-size="11" font-weight="600" fill="#166534">Git Client</text>
+
+  <rect x="620" y="357" width="160" height="24" rx="6" fill="#fce7f3"/>
+  <text x="700" y="374" text-anchor="middle" font-size="11" font-weight="600" fill="#9d174d">Search Engine</text>
+
+  <rect x="620" y="452" width="160" height="24" rx="6" fill="#ede9fe"/>
+  <text x="700" y="469" text-anchor="middle" font-size="11" font-weight="600" fill="#5b21b6">MCP Server</text>
+</svg>

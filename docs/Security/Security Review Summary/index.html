@@ -1,0 +1,1901 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentation for Admont AI, an open-source RAG-first documentation system.">
+      
+      
+      
+        <link rel="canonical" href="https://admont.ai/docs/Security/Security%20Review%20Summary/">
+      
+      
+        <link rel="prev" href="../MCP%20Authentication/">
+      
+      
+        <link rel="next" href="../Penetration%20Test%20Report/">
+      
+      
+      <link rel="icon" href="/assets/admont-ai-icon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>Security Review Summary - Admont AI Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  
+  <link rel="stylesheet" href="../../assets/stylesheets/docs-theme.css">
+  <script src="/assets/site-header.js" defer></script>
+
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#security-review-summary" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+  <admont-site-header
+    home-url="/"
+    section-root="/"
+    docs-url="/docs/"
+    icon-url="/assets/admont-ai-icon.png"
+  ></admont-site-header>
+
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Admont AI Documentation" class="md-nav__button md-logo" aria-label="Admont AI Documentation" data-md-component="logo">
+      
+  <img src="/assets/admont-ai-icon.png" alt="logo">
+
+    </a>
+    Admont AI Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/admont-ai/admont-ai-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Getting Started
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Getting Started
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Getting%20Started/Introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Getting%20Started/Installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Installation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Getting%20Started/Configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Configuration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Getting%20Started/Quick%20Start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Quick Start
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    User Guide
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            User Guide
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../User%20Guide/Documents/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Documents
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../User%20Guide/Folders/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Folders
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../User%20Guide/Drafts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Drafts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../User%20Guide/File%20History/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    File History
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../User%20Guide/Search/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Search
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../User%20Guide/AI%20Assistant/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AI Assistant
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../User%20Guide/Media%20and%20Uploads/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Media and Uploads
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../User%20Guide/Markdown%20Intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Markdown Intro
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Administration
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Administration
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Administration/User%20Management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    User Management
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Administration/Repository%20Management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Repository Management
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Administration/Permissions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Permissions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Security
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Security
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Authentication/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Authentication
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Authorization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Authorization
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MCP%20Authentication/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    MCP Authentication
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Security Review Summary
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Security Review Summary
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#status-at-a-glance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Status at a Glance
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#round-1-source-code-security-audit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Round 1 — Source-Code Security Audit
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#round-2-web-api-security" class="md-nav__link">
+    <span class="md-ellipsis">
+      Round 2 — Web &amp; API Security
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#round-3-mcp-account-privilege-flows-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Round 3 — MCP, Account &amp; Privilege Flows, Dependencies
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deferred-items-by-decision" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deferred Items (by decision)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verified-clean" class="md-nav__link">
+    <span class="md-ellipsis">
+      Verified Clean
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#defense-in-depth-controls-now-in-place" class="md-nav__link">
+    <span class="md-ellipsis">
+      Defense-in-Depth Controls Now in Place
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verification" class="md-nav__link">
+    <span class="md-ellipsis">
+      Verification
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Penetration%20Test%20Report/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Penetration Test Report
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Architecture
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Architecture
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Architecture/System%20Overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    System Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Architecture/Backend/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Backend
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Architecture/Frontend/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Frontend
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Architecture/Search%20Engine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Search Engine
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Architecture/MCP%20Server/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    MCP Server
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Architecture/REST%20API%20Reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    REST API Reference
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Developer Guide
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Developer Guide
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Developer%20Guide/Development%20Setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Development Setup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Developer%20Guide/API%20Integration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    API Integration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Developer%20Guide/MCP%20Integration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    MCP Integration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Developer%20Guide/Contributing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Contributing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#status-at-a-glance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Status at a Glance
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#round-1-source-code-security-audit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Round 1 — Source-Code Security Audit
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#round-2-web-api-security" class="md-nav__link">
+    <span class="md-ellipsis">
+      Round 2 — Web &amp; API Security
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#round-3-mcp-account-privilege-flows-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Round 3 — MCP, Account &amp; Privilege Flows, Dependencies
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deferred-items-by-decision" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deferred Items (by decision)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verified-clean" class="md-nav__link">
+    <span class="md-ellipsis">
+      Verified Clean
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#defense-in-depth-controls-now-in-place" class="md-nav__link">
+    <span class="md-ellipsis">
+      Defense-in-Depth Controls Now in Place
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verification" class="md-nav__link">
+    <span class="md-ellipsis">
+      Verification
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="security-review-summary">Security Review Summary</h1>
+<p>This document summarizes the security reviews performed on the Admont-AI backend (<code>admont-ai-api</code>) and the status of every finding. Three review rounds were conducted, covering source-code analysis, web/API attack surface, and account/privilege flows.</p>
+<blockquote>
+<p><strong>Last updated:</strong> 2026-06-07
+<strong>Scope:</strong> <code>admont-ai-api</code> — Go backend (Gin + Fuego), PostgreSQL/pgvector, Ory Hydra internal auth, MCP server, multi-provider OAuth, at-rest secret encryption.
+<strong>Methodology:</strong> Manual source review augmented by parallel exploratory analysis across authentication, authorization, input handling, cryptography, deployment configuration, MCP transport, and dependencies. Every finding was verified against the code before remediation; reported severities reflect verified impact.</p>
+</blockquote>
+<hr />
+<h2 id="status-at-a-glance">Status at a Glance</h2>
+<table>
+<thead>
+<tr>
+<th>Round</th>
+<th>Focus</th>
+<th style="text-align: right;">Findings</th>
+<th style="text-align: right;">Fixed</th>
+<th style="text-align: right;">Open / By design</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Source-code security audit</td>
+<td style="text-align: right;">14</td>
+<td style="text-align: right;">14</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Web &amp; API security</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr>
+<td>3</td>
+<td>MCP, account &amp; privilege flows, dependencies</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">2 deferred (by decision)</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td></td>
+<td style="text-align: right;"><strong>33</strong></td>
+<td style="text-align: right;"><strong>33</strong></td>
+<td style="text-align: right;"><strong>2 deferred</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Overall posture:</strong> All confirmed exploitable issues are remediated. Two behavior-changing hardening items were explicitly deferred by the maintainer (see <a href="#deferred-items-by-decision">Deferred Items</a>). The codebase builds cleanly, passes <code>go vet</code>, and all unit tests pass.</p>
+<p>Severity legend: 🔴 Critical · 🟠 High · 🟡 Medium · ⚪ Low</p>
+<hr />
+<h2 id="round-1-source-code-security-audit">Round 1 — Source-Code Security Audit</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Sev</th>
+<th>Finding</th>
+<th>Status</th>
+<th>Location</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>🔴</td>
+<td><strong>Zip slip</strong> path traversal + unbounded read in Confluence import</td>
+<td>✅ Fixed</td>
+<td><code>repo_requesthandler.go</code></td>
+</tr>
+<tr>
+<td>2</td>
+<td>🟠</td>
+<td><strong>PKCE bypass</strong> — <code>code_verifier</code> not required when challenge set (MCP OAuth)</td>
+<td>✅ Fixed</td>
+<td><code>mcp/server.go</code></td>
+</tr>
+<tr>
+<td>3</td>
+<td>🟠</td>
+<td><strong>Reflected XSS</strong> in Hydra login/signup/TOTP forms (4 sites)</td>
+<td>✅ Fixed</td>
+<td><code>auth/hydra_login.go</code></td>
+</tr>
+<tr>
+<td>4</td>
+<td>🟠</td>
+<td><strong>Git argument injection</strong> via commit hash beginning with <code>-</code></td>
+<td>✅ Fixed</td>
+<td><code>git/client.go</code></td>
+</tr>
+<tr>
+<td>5</td>
+<td>🟠</td>
+<td><strong>No server-side password validation</strong> (only HTML <code>minlength</code>)</td>
+<td>✅ Fixed</td>
+<td><code>auth/hydra_login.go</code></td>
+</tr>
+<tr>
+<td>6</td>
+<td>🟠</td>
+<td><strong>Encryption key</strong> silently falls back to JWT secret</td>
+<td>✅ Fixed</td>
+<td><code>main.go</code></td>
+</tr>
+<tr>
+<td>7</td>
+<td>🟡</td>
+<td><strong>Default DB credentials</strong> hardcoded (<code>admin</code>/<code>admin</code>)</td>
+<td>✅ Fixed</td>
+<td><code>config.go</code>, <code>docker-compose.yaml</code></td>
+</tr>
+<tr>
+<td>8</td>
+<td>🟡</td>
+<td><strong>Git credentials leaked</strong> in error output</td>
+<td>✅ Fixed</td>
+<td><code>git/client.go</code></td>
+</tr>
+<tr>
+<td>9</td>
+<td>🟡</td>
+<td>Bare-email identity matching without deprecation warning</td>
+<td>✅ Fixed</td>
+<td><code>auth/identity.go</code></td>
+</tr>
+<tr>
+<td>10</td>
+<td>🟡</td>
+<td><strong>LLM prompt injection</strong> — user instructions in system prompt</td>
+<td>✅ Fixed</td>
+<td><code>llm_requesthandler.go</code></td>
+</tr>
+<tr>
+<td>11</td>
+<td>🟡</td>
+<td>Missing <strong>security headers</strong> (nosniff, frame-options, HSTS, referrer)</td>
+<td>✅ Fixed</td>
+<td><code>main.go</code></td>
+</tr>
+<tr>
+<td>12</td>
+<td>—</td>
+<td>24h JWT with no refresh → reduced to <strong>1h access + 7-day refresh</strong></td>
+<td>✅ Fixed</td>
+<td><code>auth/jwt.go</code>, <code>auth/handler.go</code></td>
+</tr>
+<tr>
+<td>13</td>
+<td>—</td>
+<td><strong>CSRF protection</strong> added to Hydra login/signup forms</td>
+<td>✅ Fixed</td>
+<td><code>auth/hydra_login.go</code></td>
+</tr>
+<tr>
+<td>14</td>
+<td>—</td>
+<td><strong>KDF upgrade</strong> SHA-256 → HKDF-SHA256 (backward compatible)</td>
+<td>✅ Fixed</td>
+<td><code>store/crypto.go</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="round-2-web-api-security">Round 2 — Web &amp; API Security</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Sev</th>
+<th>Finding</th>
+<th>Status</th>
+<th>Location</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>15</td>
+<td>🟠</td>
+<td><strong>Open redirect + token theft</strong> in OAuth callback (<code>redirect_uri</code> unvalidated)</td>
+<td>✅ Fixed</td>
+<td><code>auth/handler.go</code></td>
+</tr>
+<tr>
+<td>16</td>
+<td>🟠</td>
+<td><strong>Open redirect</strong> in MCP OAuth flow (client redirect URI unvalidated)</td>
+<td>✅ Fixed</td>
+<td><code>mcp/server.go</code></td>
+</tr>
+<tr>
+<td>17</td>
+<td>🟠</td>
+<td><strong>Search/RAG authorization bypass (IDOR)</strong> — any authenticated user could query any non-public repo</td>
+<td>✅ Fixed</td>
+<td><code>search_requesthandler.go</code>, <code>rag_requesthandler.go</code></td>
+</tr>
+<tr>
+<td>18</td>
+<td>🟡</td>
+<td>CSRF cookie missing <code>Secure</code> flag and <code>SameSite</code></td>
+<td>✅ Fixed</td>
+<td><code>auth/hydra_login.go</code></td>
+</tr>
+<tr>
+<td>19</td>
+<td>🟡</td>
+<td><strong>Tokens in URL</strong> — JWT + refresh leaked in redirect query string</td>
+<td>✅ Fixed (one-time exchange code)</td>
+<td><code>auth/handler.go</code></td>
+</tr>
+<tr>
+<td>20</td>
+<td>🟡</td>
+<td>Goth session <strong>JSON injection</strong> via <code>fmt.Sprintf</code> with tokens</td>
+<td>✅ Fixed (<code>json.Marshal</code>)</td>
+<td><code>auth/registry.go</code></td>
+</tr>
+<tr>
+<td>21</td>
+<td>🟡</td>
+<td>MCP token endpoint returned <code>expires_in: 86400</code> vs 1h actual</td>
+<td>✅ Fixed</td>
+<td><code>mcp/server.go</code></td>
+</tr>
+<tr>
+<td>22</td>
+<td>⚪</td>
+<td><code>errorPage()</code> HTML concatenation without escaping (latent XSS)</td>
+<td>✅ Fixed</td>
+<td><code>auth/hydra_login.go</code></td>
+</tr>
+<tr>
+<td>23</td>
+<td>⚪</td>
+<td>Internal Go error details exposed to API clients (~17 handlers)</td>
+<td>✅ Fixed</td>
+<td><code>request_handler/*.go</code></td>
+</tr>
+<tr>
+<td>24</td>
+<td>⚪</td>
+<td>No <strong>rate limiting</strong> on <code>/auth/refresh</code>, <code>/repos/search</code>, <code>/repos/rag</code></td>
+<td>✅ Fixed (token-bucket)</td>
+<td><code>main.go</code>, <code>middleware/ratelimit.go</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Token exchange flow (finding 19):</strong> After OAuth, the backend now redirects with a single-use <code>code</code> (30-second TTL) instead of tokens. The frontend exchanges it at <code>POST /auth/exchange</code> for the access + refresh tokens, keeping credentials out of URLs, browser history, and access logs.</p>
+<hr />
+<h2 id="round-3-mcp-account-privilege-flows-dependencies">Round 3 — MCP, Account &amp; Privilege Flows, Dependencies</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Sev</th>
+<th>Finding</th>
+<th>Status</th>
+<th>Location</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>25</td>
+<td>🔴</td>
+<td><strong>Privilege escalation</strong> — a <code>user_admin</code> could grant itself <code>super_admin</code>/roles via user &amp; group create/update</td>
+<td>✅ Fixed (caller must be super admin)</td>
+<td><code>admin_requesthandler.go</code></td>
+</tr>
+<tr>
+<td>26</td>
+<td>🟠</td>
+<td><strong>MCP <code>/mcp/message</code> endpoint had no authentication</strong></td>
+<td>✅ Fixed (<code>requireAuthMessage</code>)</td>
+<td><code>mcp/server.go</code></td>
+</tr>
+<tr>
+<td>27</td>
+<td>🟠</td>
+<td><strong>MCP <code>canAccessRepo</code> IDOR</strong> — non-public repos only required "is authenticated"</td>
+<td>✅ Fixed (enforces permission resolver)</td>
+<td><code>mcp/server.go</code></td>
+</tr>
+<tr>
+<td>28</td>
+<td>🟡</td>
+<td><strong>Last super-admin lockout</strong> — could delete/demote the only super admin</td>
+<td>✅ Fixed (guard)</td>
+<td><code>admin_requesthandler.go</code></td>
+</tr>
+<tr>
+<td>29</td>
+<td>🟡</td>
+<td><strong>First-user signup race</strong> — concurrent signups could each become super admin</td>
+<td>✅ Fixed (mutex)</td>
+<td><code>auth/hydra_login.go</code></td>
+</tr>
+<tr>
+<td>30</td>
+<td>🟡</td>
+<td><strong>Session invalidation on password change</strong> — tokens outlived a password reset</td>
+<td>✅ Fixed (per-identity revocation, access + refresh)</td>
+<td><code>auth/jwt.go</code>, <code>main.go</code>, <code>admin_requesthandler.go</code></td>
+</tr>
+<tr>
+<td>31</td>
+<td>⚪</td>
+<td>MCP <code>searchStatus</code> tool leaked all repo names/index state</td>
+<td>✅ Fixed (filtered by access)</td>
+<td><code>mcp/tools.go</code></td>
+</tr>
+<tr>
+<td>32</td>
+<td>⚪</td>
+<td>MCP <code>deleteDraft</code> tool skipped <code>canAccessRepo</code>/<code>checkPermission</code> (drafts are self-scoped, so impact limited)</td>
+<td>✅ Fixed (parity with siblings)</td>
+<td><code>mcp/tools.go</code></td>
+</tr>
+<tr>
+<td>33</td>
+<td>⚪</td>
+<td><code>EnsureDatabase</code> interpolated DSN database name into DDL (operator-controlled; defense-in-depth)</td>
+<td>✅ Fixed (identifier validation)</td>
+<td><code>store/store.go</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Session invalidation (finding 30):</strong> <code>JWTService</code> maintains a per-identity cutoff; tokens issued at or before a <code>InvalidateSessions</code> call are rejected by both <code>ValidateToken</code> and <code>ValidateRefreshToken</code>. Triggered by self-service <code>PUT /me/password</code> and admin password reset. JWT <code>iat</code> 1-second resolution is handled explicitly. Note: the cutoff is in-memory, so a process restart clears it — acceptable because tokens expire within their lifetime (≤ 1h access, ≤ 7d refresh) regardless.</p>
+<hr />
+<h2 id="deferred-items-by-decision">Deferred Items (by decision)</h2>
+<p>These hardening changes alter user-facing behavior and were intentionally <strong>not</strong> implemented:</p>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Rationale for deferral</th>
+<th>Recommendation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Re-authentication for TOTP setup</strong> (<code>POST /me/totp/setup</code>)</td>
+<td>Currently requires only a valid JWT; a stolen token could bind attacker-controlled 2FA. Adds friction to enabling 2FA.</td>
+<td>Implement if account-takeover via stolen JWT is in the threat model; mitigated in practice by short token lifetime + session invalidation.</td>
+</tr>
+<tr>
+<td><strong>Hydra consent screen</strong></td>
+<td>Consent auto-accepts requested scopes with no user review. Only matters if non-first-party OAuth clients use the internal Hydra.</td>
+<td>Low priority while Hydra serves first-party clients only. Revisit before exposing dynamic client registration to third parties.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="verified-clean">Verified Clean</h2>
+<p>The following were reviewed and found to have <strong>no exploitable issues</strong>:</p>
+<ul>
+<li><strong>SQL injection</strong> — all queries use parameterized placeholders (<code>$1</code>, <code>$2</code>, …); the only string-built DDL (<code>EnsureDatabase</code>) is now identifier-validated.</li>
+<li><strong>Command injection</strong> — all <code>exec.Command</code> calls use argument arrays (no shell); commit refs are hex-validated.</li>
+<li><strong>Path traversal</strong> — zip extraction, draft storage, and file operations are confined; dotfile/<code>.git</code> paths are blocked.</li>
+<li><strong>Dependencies</strong> — current versions; <code>golang-jwt/jwt/v5</code> (no algorithm-confusion exposure); no <code>replace</code> directives; <code>go.sum</code> present and locked.</li>
+<li><strong>Conversation store</strong> — all queries scope by <code>user_email</code>, preventing cross-user access.</li>
+<li><strong>Admin endpoints</strong> — gated by role middleware (<code>system_admin</code>, <code>user_admin</code>, <code>repo_admin</code>).</li>
+</ul>
+<hr />
+<h2 id="defense-in-depth-controls-now-in-place">Defense-in-Depth Controls Now in Place</h2>
+<ul>
+<li>AES-256-GCM encryption at rest with HKDF-SHA256 key derivation</li>
+<li>JWT (HS256) with 1h access / 7d refresh tokens and per-identity revocation</li>
+<li>PKCE (S256) on all OAuth flows, including MCP</li>
+<li>CSRF double-submit cookie on Hydra forms (<code>Secure</code> + <code>SameSite=Lax</code> over HTTPS)</li>
+<li>Redirect-URI allow-listing on OAuth and MCP flows</li>
+<li>Hierarchical, escalating per-path permission model enforced consistently across HTTP and MCP transports</li>
+<li>Security headers (<code>X-Content-Type-Options</code>, <code>X-Frame-Options</code>, <code>Referrer-Policy</code>, conditional HSTS)</li>
+<li>Token-bucket rate limiting on sensitive endpoints</li>
+<li>Per-IP login rate limiting with TOTP 2FA support</li>
+</ul>
+<hr />
+<h2 id="verification">Verification</h2>
+<p>After each round the following were run and passed:</p>
+<div class="highlight"><pre><span></span><code>go<span class="w"> </span>build<span class="w"> </span>./...<span class="w">    </span><span class="c1"># compiles cleanly</span>
+go<span class="w"> </span>vet<span class="w"> </span>./...<span class="w">      </span><span class="c1"># no vet warnings</span>
+go<span class="w"> </span><span class="nb">test</span><span class="w"> </span>./...<span class="w">     </span><span class="c1"># all unit tests pass</span>
+</code></pre></div>
+<p>New security-focused tests were added for: zip-slip blocking, commit-ref validation, HKDF encryption round-trips, redirect-URI allow-listing, rate limiting, super-admin authorization guards, DSN identifier validation, and session invalidation (access + refresh).</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.indexes", "navigation.sections", "navigation.top", "search.highlight", "search.share", "toc.follow"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+    
+  </body>
+</html>

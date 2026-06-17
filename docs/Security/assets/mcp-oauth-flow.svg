@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 620" font-family="Segoe UI, Arial, sans-serif" font-size="12">
+  <defs>
+    <marker id="a" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#475569"/></marker>
+    <filter id="s" x="-2%" y="-2%" width="104%" height="104%"><feDropShadow dx="1" dy="1" stdDeviation="2" flood-opacity="0.08"/></filter>
+  </defs>
+
+  <text x="450" y="28" text-anchor="middle" font-size="17" font-weight="bold" fill="#1e293b">MCP OAuth Authentication Flow</text>
+
+  <!-- Actors -->
+  <rect x="60" y="50" width="130" height="44" rx="10" fill="#ede9fe" stroke="#8b5cf6" stroke-width="2" filter="url(#s)" />
+  <text x="125" y="70" text-anchor="middle" font-weight="bold" font-size="13" fill="#5b21b6">MCP Client</text>
+  <text x="125" y="84" text-anchor="middle" font-size="10" fill="#7c3aed">(Claude, IDE)</text>
+
+  <rect x="365" y="50" width="130" height="44" rx="10" fill="#fef3c7" stroke="#f59e0b" stroke-width="2" filter="url(#s)" />
+  <text x="430" y="70" text-anchor="middle" font-weight="bold" font-size="13" fill="#92400e">Backend</text>
+  <text x="430" y="84" text-anchor="middle" font-size="10" fill="#b45309">MCP Server</text>
+
+  <rect x="690" y="50" width="110" height="44" rx="10" fill="#fce7f3" stroke="#ec4899" stroke-width="2" filter="url(#s)" />
+  <text x="745" y="77" text-anchor="middle" font-weight="bold" font-size="13" fill="#9d174d">Google</text>
+
+  <!-- Lifelines -->
+  <line x1="125" y1="94" x2="125" y2="600" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="6,4" />
+  <line x1="430" y1="94" x2="430" y2="600" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="6,4" />
+  <line x1="745" y1="94" x2="745" y2="600" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="6,4" />
+
+  <!-- Phase 1: Discovery -->
+  <rect x="15" y="110" width="870" height="2" fill="#e2e8f0" />
+  <text x="20" y="128" font-size="11" font-weight="bold" fill="#94a3b8">DISCOVERY</text>
+
+  <!-- Step 1 -->
+  <rect x="8" y="138" width="18" height="18" rx="9" fill="#8b5cf6" />
+  <text x="17" y="151" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">1</text>
+  <line x1="125" y1="147" x2="420" y2="147" stroke="#475569" stroke-width="1.5" marker-end="url(#a)" />
+  <text x="272" y="142" text-anchor="middle" font-size="11" fill="#334155">GET /mcp/sse (no token)</text>
+
+  <rect x="8" y="160" width="18" height="18" rx="9" fill="#8b5cf6" />
+  <text x="17" y="173" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">2</text>
+  <line x1="420" y1="169" x2="135" y2="169" stroke="#475569" stroke-width="1.5" marker-end="url(#a)" />
+  <text x="277" y="164" text-anchor="middle" font-size="11" fill="#334155">401 + WWW-Authenticate → resource metadata URL</text>
+
+  <rect x="8" y="182" width="18" height="18" rx="9" fill="#8b5cf6" />
+  <text x="17" y="195" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">3</text>
+  <line x1="125" y1="191" x2="420" y2="191" stroke="#475569" stroke-width="1.5" marker-end="url(#a)" />
+  <text x="272" y="186" text-anchor="middle" font-size="11" fill="#334155">GET /.well-known/oauth-authorization-server</text>
+
+  <line x1="420" y1="207" x2="135" y2="207" stroke="#475569" stroke-width="1.5" marker-end="url(#a)" />
+  <text x="277" y="202" text-anchor="middle" font-size="11" fill="#334155">Auth server metadata (endpoints, PKCE methods)</text>
+
+  <!-- Phase 2: Registration -->
+  <rect x="15" y="225" width="870" height="2" fill="#e2e8f0" />
+  <text x="20" y="243" font-size="11" font-weight="bold" fill="#94a3b8">DYNAMIC CLIENT REGISTRATION (RFC 7591)</text>
+
+  <rect x="8" y="253" width="18" height="18" rx="9" fill="#8b5cf6" />
+  <text x="17" y="266" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">4</text>
+  <line x1="125" y1="262" x2="420" y2="262" stroke="#475569" stroke-width="1.5" marker-end="url(#a)" />
+  <text x="272" y="257" text-anchor="middle" font-size="11" fill="#334155">POST /mcp/register {redirect_uris, ...}</text>
+
+  <line x1="420" y1="278" x2="135" y2="278" stroke="#475569" stroke-width="1.5" marker-end="url(#a)" />
+  <text x="272" y="273" text-anchor="middle" font-size="11" fill="#334155">{client_id: random, token_endpoint_auth_method: "none"}</text>
+
+  <!-- Phase 3: Authorization -->
+  <rect x="15" y="296" width="870" height="2" fill="#e2e8f0" />
+  <text x="20" y="314" font-size="11" font-weight="bold" fill="#94a3b8">AUTHORIZATION (PKCE)</text>
+
+  <rect x="8" y="324" width="18" height="18" rx="9" fill="#8b5cf6" />
+  <text x="17" y="337" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">5</text>
+  <rect x="35" y="321" width="180" height="30" rx="6" fill="#f5f3ff" stroke="#c4b5fd" stroke-width="1" />
+  <text x="125" y="340" text-anchor="middle" font-size="10" fill="#5b21b6">Generate PKCE verifier + challenge</text>
+
+  <rect x="8" y="356" width="18" height="18" rx="9" fill="#8b5cf6" />
+  <text x="17" y="369" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">6</text>
+  <line x1="125" y1="365" x2="420" y2="365" stroke="#475569" stroke-width="1.5" marker-end="url(#a)" />
+  <text x="272" y="360" text-anchor="middle" font-size="11" fill="#334155">GET /mcp/authorize?code_challenge=...&amp;redirect_uri=...</text>
+
+  <rect x="8" y="378" width="18" height="18" rx="9" fill="#8b5cf6" />
+  <text x="17" y="391" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">7</text>
+  <line x1="430" y1="387" x2="735" y2="387" stroke="#475569" stroke-width="1.5" marker-end="url(#a)" />
+  <text x="582" y="382" text-anchor="middle" font-size="11" fill="#334155">Redirect → Google OAuth consent</text>
+
+  <rect x="8" y="400" width="18" height="18" rx="9" fill="#8b5cf6" />
+  <text x="17" y="413" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">8</text>
+  <line x1="735" y1="409" x2="440" y2="409" stroke="#475569" stroke-width="1.5" marker-end="url(#a)" />
+  <text x="587" y="404" text-anchor="middle" font-size="11" fill="#334155">Callback with Google auth code</text>
+
+  <rect x="8" y="422" width="18" height="18" rx="9" fill="#8b5cf6" />
+  <text x="17" y="435" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">9</text>
+  <rect x="340" y="419" width="180" height="42" rx="6" fill="#fefce8" stroke="#eab308" stroke-width="1" />
+  <text x="430" y="436" text-anchor="middle" font-size="10" fill="#713f12">Exchange Google code → tokens</text>
+  <text x="430" y="450" text-anchor="middle" font-size="10" fill="#713f12">Generate JWT + auth code (5min TTL)</text>
+
+  <rect x="8" y="468" width="18" height="18" rx="9" fill="#8b5cf6" />
+  <text x="17" y="481" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">10</text>
+  <line x1="420" y1="477" x2="135" y2="477" stroke="#475569" stroke-width="1.5" marker-end="url(#a)" />
+  <text x="277" y="472" text-anchor="middle" font-size="11" fill="#334155">Redirect to client redirect_uri?code=auth_code</text>
+
+  <!-- Phase 4: Token exchange -->
+  <rect x="15" y="496" width="870" height="2" fill="#e2e8f0" />
+  <text x="20" y="514" font-size="11" font-weight="bold" fill="#94a3b8">TOKEN EXCHANGE</text>
+
+  <rect x="8" y="524" width="18" height="18" rx="9" fill="#8b5cf6" />
+  <text x="17" y="537" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">11</text>
+  <line x1="125" y1="533" x2="420" y2="533" stroke="#475569" stroke-width="1.5" marker-end="url(#a)" />
+  <text x="272" y="528" text-anchor="middle" font-size="11" fill="#334155">POST /mcp/token {code, code_verifier}</text>
+
+  <rect x="340" y="541" width="180" height="24" rx="6" fill="#fefce8" stroke="#eab308" stroke-width="1" />
+  <text x="430" y="558" text-anchor="middle" font-size="10" fill="#713f12">Verify SHA256(verifier) = challenge</text>
+
+  <rect x="8" y="568" width="18" height="18" rx="9" fill="#8b5cf6" />
+  <text x="17" y="581" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">12</text>
+  <line x1="420" y1="577" x2="135" y2="577" stroke="#475569" stroke-width="1.5" marker-end="url(#a)" />
+  <text x="272" y="572" text-anchor="middle" font-size="11" fill="#334155">{access_token: JWT} → reconnect SSE with Bearer token</text>
+</svg>

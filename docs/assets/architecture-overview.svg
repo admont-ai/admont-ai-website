@@ -1,0 +1,160 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 730" font-family="Segoe UI, Arial, sans-serif" font-size="13">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#64748b"/></marker>
+    <marker id="arrow-rev" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto"><polygon points="10 0, 0 3.5, 10 7" fill="#64748b"/></marker>
+    <filter id="shadow" x="-2%" y="-2%" width="104%" height="104%"><feDropShadow dx="1" dy="1" stdDeviation="2" flood-opacity="0.08"/></filter>
+  </defs>
+
+  <!-- ===== CLIENTS (top) ===== -->
+
+  <!-- Web UI -->
+  <rect x="310" y="20" width="200" height="65" rx="12" fill="#eff6ff" stroke="#3b82f6" stroke-width="2" filter="url(#shadow)"/>
+  <text x="410" y="47" text-anchor="middle" font-size="14" font-weight="bold" fill="#1e40af">Admont-AI Web UI</text>
+  <text x="410" y="67" text-anchor="middle" font-size="10" fill="#64748b">Browser-based editor &amp; search</text>
+
+  <!-- MCP Clients -->
+  <rect x="590" y="20" width="200" height="65" rx="12" fill="#eff6ff" stroke="#3b82f6" stroke-width="2" filter="url(#shadow)"/>
+  <text x="690" y="47" text-anchor="middle" font-size="14" font-weight="bold" fill="#1e40af">MCP Clients</text>
+  <text x="690" y="67" text-anchor="middle" font-size="10" fill="#64748b">Claude Code, IDEs, AI Agents</text>
+
+  <!-- Arrows from clients to core -->
+  <line x1="410" y1="85" x2="410" y2="140" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="690" y1="85" x2="690" y2="140" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Protocol labels -->
+  <rect x="340" y="100" width="140" height="18" rx="4" fill="#f8fafc"/>
+  <text x="410" y="114" text-anchor="middle" font-size="10" fill="#64748b" font-weight="500">REST API (HTTP/JSON)</text>
+
+  <rect x="618" y="100" width="144" height="18" rx="4" fill="#f8fafc"/>
+  <text x="690" y="114" text-anchor="middle" font-size="10" fill="#64748b" font-weight="500">MCP (SSE + OAuth 2.1)</text>
+
+  <!-- ===== ADMONT-AI CORE (center) ===== -->
+  <rect x="290" y="145" width="520" height="325" rx="12" fill="#f0fdf4" stroke="#22c55e" stroke-width="2" filter="url(#shadow)"/>
+  <text x="550" y="175" text-anchor="middle" font-size="18" font-weight="bold" fill="#166534">Admont-AI</text>
+  <text x="550" y="195" text-anchor="middle" font-size="11" fill="#64748b">Document engine connecting storage, search, AI, and identity</text>
+
+  <!-- Core row 1: API layer -->
+  <rect x="310" y="215" width="233" height="45" rx="8" fill="#ffffff" stroke="#86efac" stroke-width="1.5"/>
+  <text x="426" y="235" text-anchor="middle" font-weight="600" fill="#14532d">REST API</text>
+  <text x="426" y="250" text-anchor="middle" font-size="10" fill="#475569">HTTP/JSON endpoints</text>
+
+  <rect x="558" y="215" width="232" height="45" rx="8" fill="#ffffff" stroke="#86efac" stroke-width="1.5"/>
+  <text x="674" y="235" text-anchor="middle" font-weight="600" fill="#14532d">MCP Server</text>
+  <text x="674" y="250" text-anchor="middle" font-size="10" fill="#475569">SSE transport + OAuth 2.1</text>
+
+  <!-- Core row 2: Document Engine, Rich Editor, Draft Manager -->
+  <rect x="310" y="275" width="150" height="45" rx="8" fill="#ffffff" stroke="#86efac" stroke-width="1.5"/>
+  <text x="385" y="295" text-anchor="middle" font-weight="600" fill="#14532d">Document Engine</text>
+  <text x="385" y="310" text-anchor="middle" font-size="10" fill="#475569">CRUD, versioning, diffs</text>
+
+  <rect x="475" y="275" width="150" height="45" rx="8" fill="#ffffff" stroke="#86efac" stroke-width="1.5"/>
+  <text x="550" y="295" text-anchor="middle" font-weight="600" fill="#14532d">Rich Editor</text>
+  <text x="550" y="310" text-anchor="middle" font-size="10" fill="#475569">MD, Mermaid, Draw.io</text>
+
+  <rect x="640" y="275" width="150" height="45" rx="8" fill="#ffffff" stroke="#86efac" stroke-width="1.5"/>
+  <text x="715" y="295" text-anchor="middle" font-weight="600" fill="#14532d">Draft Manager</text>
+  <text x="715" y="310" text-anchor="middle" font-size="10" fill="#475569">3-way merge publish</text>
+
+  <!-- Core row 3: Auth, Permissions, Git Client -->
+  <rect x="310" y="335" width="150" height="45" rx="8" fill="#ffffff" stroke="#86efac" stroke-width="1.5"/>
+  <text x="385" y="355" text-anchor="middle" font-weight="600" fill="#14532d">Auth</text>
+  <text x="385" y="370" text-anchor="middle" font-size="10" fill="#475569">OAuth 2.0 + PKCE</text>
+
+  <rect x="475" y="335" width="150" height="45" rx="8" fill="#ffffff" stroke="#86efac" stroke-width="1.5"/>
+  <text x="550" y="355" text-anchor="middle" font-weight="600" fill="#14532d">Permissions</text>
+  <text x="550" y="370" text-anchor="middle" font-size="10" fill="#475569">File-level ACL</text>
+
+  <rect x="640" y="335" width="150" height="45" rx="8" fill="#ffffff" stroke="#86efac" stroke-width="1.5"/>
+  <text x="715" y="355" text-anchor="middle" font-weight="600" fill="#14532d">Git Client</text>
+  <text x="715" y="370" text-anchor="middle" font-size="10" fill="#475569">Clone, pull, commit, LFS</text>
+
+  <!-- Core row 4: Search Engine, AI Integration, Grammar & Spelling -->
+  <rect x="310" y="395" width="150" height="45" rx="8" fill="#ffffff" stroke="#86efac" stroke-width="1.5"/>
+  <text x="385" y="415" text-anchor="middle" font-weight="600" fill="#14532d">Search Engine</text>
+  <text x="385" y="430" text-anchor="middle" font-size="10" fill="#475569">Hybrid FT + semantic</text>
+
+  <rect x="475" y="395" width="150" height="45" rx="8" fill="#ffffff" stroke="#86efac" stroke-width="1.5"/>
+  <text x="550" y="415" text-anchor="middle" font-weight="600" fill="#14532d">AI Integration</text>
+  <text x="550" y="430" text-anchor="middle" font-size="10" fill="#475569">Generate &amp; enrich</text>
+
+  <rect x="640" y="395" width="150" height="45" rx="8" fill="#ffffff" stroke="#86efac" stroke-width="1.5"/>
+  <text x="715" y="415" text-anchor="middle" font-weight="600" fill="#14532d">Grammar &amp; Spelling</text>
+  <text x="715" y="430" text-anchor="middle" font-size="10" fill="#475569">Real-time check</text>
+
+  <!-- ===== LEFT: AUTH PROVIDERS ===== -->
+
+  <line x1="290" y1="307" x2="230" y2="307" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)" marker-start="url(#arrow-rev)"/>
+
+  <rect x="15" y="180" width="205" height="260" rx="12" fill="#fff7ed" stroke="#f97316" stroke-width="2" filter="url(#shadow)"/>
+  <text x="117" y="207" text-anchor="middle" font-size="14" font-weight="bold" fill="#9a3412">Authentication</text>
+  <text x="117" y="225" text-anchor="middle" font-size="14" font-weight="bold" fill="#9a3412">Providers</text>
+
+  <rect x="35" y="240" width="165" height="34" rx="6" fill="#ffffff" stroke="#fdba74" stroke-width="1"/>
+  <text x="117" y="262" text-anchor="middle" font-weight="500" fill="#7c2d12">Built-in Auth</text>
+
+  <rect x="35" y="282" width="165" height="34" rx="6" fill="#ffffff" stroke="#fdba74" stroke-width="1"/>
+  <text x="117" y="304" text-anchor="middle" font-weight="500" fill="#7c2d12">Google</text>
+
+  <rect x="35" y="324" width="165" height="34" rx="6" fill="#ffffff" stroke="#fdba74" stroke-width="1"/>
+  <text x="117" y="346" text-anchor="middle" font-weight="500" fill="#7c2d12">Microsoft</text>
+
+  <rect x="35" y="366" width="165" height="34" rx="6" fill="#ffffff" stroke="#fdba74" stroke-width="1"/>
+  <text x="117" y="388" text-anchor="middle" font-weight="500" fill="#7c2d12">GitHub</text>
+
+  <text x="117" y="423" text-anchor="middle" font-size="10" fill="#78716c">OAuth 2.0 + PKCE</text>
+
+  <!-- ===== RIGHT: STORAGE BACKENDS ===== -->
+
+  <line x1="810" y1="307" x2="870" y2="307" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)" marker-start="url(#arrow-rev)"/>
+
+  <rect x="880" y="180" width="205" height="260" rx="12" fill="#fef9c3" stroke="#eab308" stroke-width="2" filter="url(#shadow)"/>
+  <text x="982" y="207" text-anchor="middle" font-size="14" font-weight="bold" fill="#854d0e">Storage</text>
+  <text x="982" y="225" text-anchor="middle" font-size="14" font-weight="bold" fill="#854d0e">Backends</text>
+
+  <rect x="900" y="240" width="165" height="34" rx="6" fill="#ffffff" stroke="#fbbf24" stroke-width="1"/>
+  <text x="982" y="262" text-anchor="middle" font-weight="500" fill="#78350f">Local Git Repos</text>
+
+  <rect x="900" y="282" width="165" height="34" rx="6" fill="#ffffff" stroke="#fbbf24" stroke-width="1"/>
+  <text x="982" y="304" text-anchor="middle" font-weight="500" fill="#78350f">Remote Git</text>
+
+  <rect x="900" y="324" width="165" height="34" rx="6" fill="#ffffff" stroke="#fbbf24" stroke-width="1"/>
+  <text x="982" y="346" text-anchor="middle" font-weight="500" fill="#78350f">S3 Object Storage</text>
+
+  <text x="982" y="383" text-anchor="middle" font-size="10" fill="#78716c">GitHub, GitLab, Gitea,</text>
+  <text x="982" y="397" text-anchor="middle" font-size="10" fill="#78716c">MinIO, AWS S3</text>
+
+  <!-- ===== BOTTOM: SEARCH ENGINES + LLMs ===== -->
+
+  <line x1="430" y1="470" x2="430" y2="520" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)" marker-start="url(#arrow-rev)"/>
+  <line x1="670" y1="470" x2="670" y2="520" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)" marker-start="url(#arrow-rev)"/>
+
+  <!-- SEARCH ENGINES (bottom-left) -->
+  <rect x="290" y="525" width="250" height="190" rx="12" fill="#fce7f3" stroke="#ec4899" stroke-width="2" filter="url(#shadow)"/>
+  <text x="415" y="550" text-anchor="middle" font-size="14" font-weight="bold" fill="#9d174d">Search Engines</text>
+
+  <rect x="310" y="565" width="210" height="30" rx="6" fill="#ffffff" stroke="#f9a8d4" stroke-width="1"/>
+  <text x="415" y="585" text-anchor="middle" font-weight="500" font-size="11" fill="#831843">Built-in Full-Text</text>
+
+  <rect x="310" y="603" width="210" height="30" rx="6" fill="#ffffff" stroke="#f9a8d4" stroke-width="1"/>
+  <text x="415" y="623" text-anchor="middle" font-weight="500" font-size="11" fill="#831843">Elasticsearch / OpenSearch</text>
+
+  <rect x="310" y="641" width="210" height="30" rx="6" fill="#ffffff" stroke="#f9a8d4" stroke-width="1"/>
+  <text x="415" y="661" text-anchor="middle" font-weight="500" font-size="11" fill="#831843">Vector / Semantic</text>
+
+  <text x="415" y="698" text-anchor="middle" font-size="10" fill="#78716c">Hybrid search across all content</text>
+
+  <!-- LLMs (bottom-right) -->
+  <rect x="560" y="525" width="250" height="190" rx="12" fill="#f5f3ff" stroke="#8b5cf6" stroke-width="2" filter="url(#shadow)"/>
+  <text x="685" y="550" text-anchor="middle" font-size="14" font-weight="bold" fill="#5b21b6">LLMs</text>
+
+  <rect x="580" y="565" width="210" height="30" rx="6" fill="#ffffff" stroke="#c4b5fd" stroke-width="1"/>
+  <text x="685" y="585" text-anchor="middle" font-weight="500" font-size="11" fill="#4c1d95">OpenAI, Anthropic, Google</text>
+
+  <rect x="580" y="603" width="210" height="30" rx="6" fill="#ffffff" stroke="#c4b5fd" stroke-width="1"/>
+  <text x="685" y="623" text-anchor="middle" font-weight="500" font-size="11" fill="#4c1d95">Ollama, vLLM (self-hosted)</text>
+
+  <rect x="580" y="641" width="210" height="30" rx="6" fill="#ffffff" stroke="#c4b5fd" stroke-width="1"/>
+  <text x="685" y="661" text-anchor="middle" font-weight="500" font-size="11" fill="#4c1d95">Custom / OpenAI-compatible</text>
+
+  <text x="685" y="698" text-anchor="middle" font-size="10" fill="#78716c">Cloud and self-hosted models</text>
+</svg>

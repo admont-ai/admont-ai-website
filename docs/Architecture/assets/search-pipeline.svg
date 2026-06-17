@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 340" font-family="Segoe UI, Arial, sans-serif" font-size="13">
+  <defs>
+    <marker id="arr" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#64748b"/></marker>
+    <filter id="sh" x="-2%" y="-2%" width="104%" height="104%"><feDropShadow dx="1" dy="1" stdDeviation="2" flood-opacity="0.08"/></filter>
+  </defs>
+
+  <!-- Title -->
+  <text x="430" y="30" text-anchor="middle" font-size="17" font-weight="bold" fill="#1e293b">Search Indexing Pipeline</text>
+
+  <!-- Markdown File -->
+  <rect x="20" y="60" width="150" height="80" rx="12" fill="#eff6ff" stroke="#3b82f6" stroke-width="2" filter="url(#sh)"/>
+  <text x="95" y="95" text-anchor="middle" font-size="28" fill="#3b82f6">&#128196;</text>
+  <text x="95" y="125" text-anchor="middle" font-weight="600" fill="#1e40af">Markdown File</text>
+
+  <!-- Arrow 1 -->
+  <line x1="170" y1="100" x2="220" y2="100" stroke="#64748b" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- Chunker -->
+  <rect x="225" y="60" width="170" height="80" rx="12" fill="#f0fdf4" stroke="#22c55e" stroke-width="2" filter="url(#sh)"/>
+  <text x="310" y="90" text-anchor="middle" font-weight="bold" font-size="14" fill="#166534">Chunker</text>
+  <text x="310" y="108" text-anchor="middle" font-size="11" fill="#475569">Goldmark AST parser</text>
+  <text x="310" y="124" text-anchor="middle" font-size="11" fill="#475569">Heading-based splitting</text>
+
+  <!-- Arrow 2 -->
+  <line x1="395" y1="100" x2="445" y2="100" stroke="#64748b" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- Embedder -->
+  <rect x="450" y="60" width="170" height="80" rx="12" fill="#fef3c7" stroke="#f59e0b" stroke-width="2" filter="url(#sh)"/>
+  <text x="535" y="90" text-anchor="middle" font-weight="bold" font-size="14" fill="#92400e">Embedder</text>
+  <text x="535" y="108" text-anchor="middle" font-size="11" fill="#475569">all-MiniLM-L6-v2</text>
+  <text x="535" y="124" text-anchor="middle" font-size="11" fill="#475569">ONNX Runtime · 384d</text>
+
+  <!-- Arrow 3 -->
+  <line x1="620" y1="100" x2="670" y2="100" stroke="#64748b" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- PostgreSQL -->
+  <rect x="675" y="45" width="170" height="110" rx="12" fill="#fce7f3" stroke="#ec4899" stroke-width="2" filter="url(#sh)"/>
+  <text x="760" y="72" text-anchor="middle" font-weight="bold" font-size="14" fill="#9d174d">PostgreSQL</text>
+  <text x="760" y="90" text-anchor="middle" font-size="11" fill="#9d174d">+ pgvector</text>
+  <line x1="690" y1="100" x2="830" y2="100" stroke="#f9a8d4" stroke-width="1"/>
+  <text x="760" y="118" text-anchor="middle" font-size="11" fill="#475569">content (text)</text>
+  <text x="760" y="134" text-anchor="middle" font-size="11" fill="#475569">tsv (tsvector)</text>
+  <text x="760" y="150" text-anchor="middle" font-size="11" fill="#475569">embedding vector(384)</text>
+
+  <!-- Search Query Section -->
+  <text x="430" y="210" text-anchor="middle" font-size="17" font-weight="bold" fill="#1e293b">Search Query Execution</text>
+
+  <!-- Search Query -->
+  <rect x="20" y="235" width="130" height="70" rx="12" fill="#f8fafc" stroke="#94a3b8" stroke-width="2" filter="url(#sh)"/>
+  <text x="85" y="265" text-anchor="middle" font-size="22" fill="#64748b">&#128269;</text>
+  <text x="85" y="288" text-anchor="middle" font-weight="600" fill="#334155">Search Query</text>
+
+  <!-- Arrow to fulltext -->
+  <line x1="150" y1="257" x2="200" y2="257" stroke="#64748b" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- Arrow to semantic -->
+  <line x1="150" y1="283" x2="200" y2="283" stroke="#64748b" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- Fulltext Search -->
+  <rect x="205" y="230" width="190" height="42" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="300" y="248" text-anchor="middle" font-weight="600" fill="#1e40af">Full-Text Search</text>
+  <text x="300" y="264" text-anchor="middle" font-size="11" fill="#475569">plainto_tsquery + ts_rank_cd</text>
+
+  <!-- Semantic Search -->
+  <rect x="205" y="282" width="190" height="42" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="300" y="300" text-anchor="middle" font-weight="600" fill="#92400e">Semantic Search</text>
+  <text x="300" y="316" text-anchor="middle" font-size="11" fill="#475569">Cosine similarity (pgvector)</text>
+
+  <!-- Arrows to RRF -->
+  <line x1="395" y1="255" x2="470" y2="272" stroke="#64748b" stroke-width="2" marker-end="url(#arr)"/>
+  <line x1="395" y1="300" x2="470" y2="283" stroke="#64748b" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- RRF Fusion -->
+  <rect x="475" y="252" width="200" height="52" rx="12" fill="#ede9fe" stroke="#8b5cf6" stroke-width="2" filter="url(#sh)"/>
+  <text x="575" y="275" text-anchor="middle" font-weight="bold" font-size="14" fill="#5b21b6">RRF Merge</text>
+  <text x="575" y="293" text-anchor="middle" font-size="11" fill="#475569">score = Σ 1/(60 + rank)</text>
+
+  <!-- Arrow to results -->
+  <line x1="675" y1="278" x2="725" y2="278" stroke="#64748b" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- Results -->
+  <rect x="730" y="252" width="115" height="52" rx="12" fill="#f0fdf4" stroke="#22c55e" stroke-width="2" filter="url(#sh)"/>
+  <text x="787" y="275" text-anchor="middle" font-weight="bold" font-size="14" fill="#166534">Top-K</text>
+  <text x="787" y="293" text-anchor="middle" font-size="11" fill="#475569">Results</text>
+</svg>
