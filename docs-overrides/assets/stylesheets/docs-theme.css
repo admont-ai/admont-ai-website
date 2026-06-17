@@ -260,25 +260,6 @@ body {
   box-shadow: var(--admont-shadow);
 }
 
-.md-footer {
-  margin-top: 1.4rem;
-  color: var(--admont-muted);
-}
-
-.md-footer-meta {
-  background: transparent;
-}
-
-.md-footer__inner {
-  padding-inline: 0.2rem;
-}
-
-.md-footer__link {
-  border: 1px solid var(--admont-line);
-  border-radius: var(--admont-radius-md);
-  background: rgba(255, 252, 245, 0.62);
-}
-
 .md-top {
   border-radius: var(--admont-radius-sm);
   background: var(--admont-accent-strong);
