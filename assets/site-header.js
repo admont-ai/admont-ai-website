@@ -58,7 +58,7 @@ class AdmontSiteHeader extends HTMLElement {
     styles.textContent = `
       admont-site-header {
         display: block;
-        width: calc(100% - 8px);
+        width: calc(100% - 56px);
         margin: 0 auto;
         padding-top: 28px;
       }
@@ -131,7 +131,7 @@ class AdmontSiteHeader extends HTMLElement {
 
       @media (max-width: 640px) {
         admont-site-header {
-          width: calc(100% - 4px);
+          width: calc(100% - 16px);
           padding-top: 8px;
         }
 
