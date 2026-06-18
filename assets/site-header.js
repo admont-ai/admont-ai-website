@@ -13,9 +13,6 @@ class AdmontSiteHeader extends HTMLElement {
     const docsUrl = this.getAttribute("docs-url") || `${basePath}docs/`;
     const iconUrl =
       this.getAttribute("icon-url") || `${basePath}assets/admont-ai-icon.png`;
-    const openSourceUrl =
-      this.getAttribute("open-source-url") || `${basePath}index.html#open-source`;
-    const showOpenSource = this.getAttribute("show-open-source") !== "false";
     const actionNodes = Array.from(this.querySelectorAll('[slot="actions"]'));
     const actions = document.createElement("div");
     const navItems = [
@@ -33,13 +30,6 @@ class AdmontSiteHeader extends HTMLElement {
       { id: "security", label: "Security", href: `${basePath}security/` },
       { id: "docs", label: "Docs", href: docsUrl },
     ];
-    if (showOpenSource) {
-      navItems.splice(4, 0, {
-        id: "open-source",
-        label: "Open Source",
-        href: openSourceUrl,
-      });
-    }
 
     actions.className = "site-header-actions";
     for (const node of actionNodes) {

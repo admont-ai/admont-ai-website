@@ -1,0 +1,108 @@
+<svg width="1200" height="560" viewBox="0 0 1200 560" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">How Admont workflow</title>
+  <desc id="desc">A four-step process diagram showing a user creating a document, the document being stored and versioned, indexed for hybrid search, and reused to create new documents, with a loop back to the first step.</desc>
+
+  <rect width="1200" height="560" rx="28" fill="url(#bg)" stroke="#D8D0C0"/>
+
+  <g transform="translate(14 0)">
+    <g stroke="#78A8A1" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M288 250H322"/>
+      <path d="M578 250H612"/>
+      <path d="M868 250H902"/>
+      <path d="M1036 392V474H18V250H28"/>
+    </g>
+
+    <g fill="#78A8A1">
+      <path d="M334 250L318 240V260Z"/>
+      <path d="M624 250L608 240V260Z"/>
+      <path d="M914 250L898 240V260Z"/>
+      <path d="M48 250L28 239V261Z"/>
+    </g>
+
+    <g filter="url(#shadow)">
+    <rect x="48" y="126" width="236" height="266" rx="24" fill="#FFFDF7"/>
+    <rect x="48" y="126" width="236" height="266" rx="24" stroke="#D8D0C0"/>
+    <circle cx="104" cy="184" r="24" fill="#E4F1EE"/>
+    <circle cx="104" cy="177" r="7" stroke="#0F5B54" stroke-width="3"/>
+    <path d="M90 198C93 190 100 186 104 186C108 186 115 190 118 198" stroke="#0F5B54" stroke-width="3" stroke-linecap="round"/>
+    <text x="76" y="238" fill="#1F2321" font-family="'Avenir Next', Avenir, 'Segoe UI', sans-serif" font-size="27" font-weight="700">
+      <tspan x="76" dy="0">User creates</tspan>
+      <tspan x="76" dy="32">document</tspan>
+    </text>
+    <text x="76" y="316" fill="#5D645D" font-family="'Avenir Next', Avenir, 'Segoe UI', sans-serif" font-size="16.5">
+      <tspan x="76" dy="0">Markdown, diagrams,</tspan>
+      <tspan x="76" dy="24">and other artefacts</tspan>
+    </text>
+    </g>
+
+    <g filter="url(#shadow)">
+    <rect x="338" y="126" width="236" height="266" rx="24" fill="#FFFDF7"/>
+    <rect x="338" y="126" width="236" height="266" rx="24" stroke="#D8D0C0"/>
+    <rect x="392" y="156" width="54" height="70" rx="8" fill="#E4F1EE" stroke="#0F5B54" stroke-width="3"/>
+    <path d="M434 156V176H446" stroke="#0F5B54" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="410" y="172" width="54" height="70" rx="8" fill="#F4FBF9" stroke="#0F5B54" stroke-width="3"/>
+    <path d="M452 172V192H464" stroke="#0F5B54" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="366" y="270" fill="#1F2321" font-family="'Avenir Next', Avenir, 'Segoe UI', sans-serif" font-size="27" font-weight="700">
+      <tspan x="366" dy="0">Stored and</tspan>
+      <tspan x="366" dy="32">versioned</tspan>
+    </text>
+    <text x="366" y="348" fill="#5D645D" font-family="'Avenir Next', Avenir, 'Segoe UI', sans-serif" font-size="16.5">
+      <tspan x="366" dy="0">Repository history,</tspan>
+      <tspan x="366" dy="24">revisions, provenance</tspan>
+    </text>
+    </g>
+
+    <g filter="url(#shadow)">
+    <rect x="628" y="126" width="236" height="266" rx="24" fill="#FFFDF7"/>
+    <rect x="628" y="126" width="236" height="266" rx="24" stroke="#D8D0C0"/>
+    <circle cx="746" cy="192" r="28" fill="#E4F1EE" stroke="#0F5B54" stroke-width="3"/>
+    <path d="M746 172V212" stroke="#0F5B54" stroke-width="3" stroke-linecap="round"/>
+    <path d="M726 192H766" stroke="#0F5B54" stroke-width="3" stroke-linecap="round"/>
+    <path d="M732 178L760 206" stroke="#0F5B54" stroke-width="3" stroke-linecap="round"/>
+    <path d="M732 206L760 178" stroke="#0F5B54" stroke-width="3" stroke-linecap="round"/>
+    <text x="656" y="270" fill="#1F2321" font-family="'Avenir Next', Avenir, 'Segoe UI', sans-serif" font-size="27" font-weight="700">
+      <tspan x="656" dy="0">Indexed for</tspan>
+      <tspan x="656" dy="32">hybrid search</tspan>
+    </text>
+    <text x="656" y="348" fill="#5D645D" font-family="'Avenir Next', Avenir, 'Segoe UI', sans-serif" font-size="16.5">
+      <tspan x="656" dy="0">Full-text and semantic</tspan>
+      <tspan x="656" dy="24">retrieval ready</tspan>
+    </text>
+    </g>
+
+    <g filter="url(#shadow)">
+    <rect x="918" y="126" width="236" height="266" rx="24" fill="#FFFDF7"/>
+    <rect x="918" y="126" width="236" height="266" rx="24" stroke="#D8D0C0"/>
+    <rect x="1008" y="160" width="54" height="68" rx="8" fill="#F4FBF9" stroke="#0F5B54" stroke-width="3"/>
+    <path d="M1050 160V180H1062" stroke="#0F5B54" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M998 188L991 195" stroke="#0F5B54" stroke-width="3" stroke-linecap="round"/>
+    <path d="M1071 188L1078 195" stroke="#0F5B54" stroke-width="3" stroke-linecap="round"/>
+    <path d="M1000 170L993 163" stroke="#0F5B54" stroke-width="3" stroke-linecap="round"/>
+    <path d="M1069 170L1076 163" stroke="#0F5B54" stroke-width="3" stroke-linecap="round"/>
+    <text x="946" y="270" fill="#1F2321" font-family="'Avenir Next', Avenir, 'Segoe UI', sans-serif" font-size="27" font-weight="700">
+      <tspan x="946" dy="0">Create new</tspan>
+      <tspan x="946" dy="32">documents</tspan>
+    </text>
+    <text x="946" y="348" fill="#5D645D" font-family="'Avenir Next', Avenir, 'Segoe UI', sans-serif" font-size="16.5">
+      <tspan x="946" dy="0">Reuse previous work</tspan>
+      <tspan x="946" dy="24">with AI assistance</tspan>
+    </text>
+    </g>
+  </g>
+
+  <defs>
+    <linearGradient id="bg" x1="600" y1="0" x2="600" y2="560" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFDF7"/>
+      <stop offset="1" stop-color="#F3ECDD"/>
+    </linearGradient>
+    <filter id="shadow" x="16" y="110" width="1168" height="308" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+      <feOffset dy="10"/>
+      <feGaussianBlur stdDeviation="14"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0.121569 0 0 0 0 0.137255 0 0 0 0 0.129412 0 0 0 0.1 0"/>
+      <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_1_1"/>
+      <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_1_1" result="shape"/>
+    </filter>
+  </defs>
+</svg>
