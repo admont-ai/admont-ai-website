@@ -1,0 +1,104 @@
+<svg width="1200" height="730" viewBox="0 0 1200 730" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Admont AI high-level architecture</title>
+  <desc id="desc">A high-level architecture diagram showing web frontend and MCP clients at the top, the Go backend in the middle with a social login box beside it, and external services at the bottom including Git repositories, PostgreSQL, pgvector, and LLM providers.</desc>
+  <rect width="1200" height="730" rx="28" fill="url(#bg)" stroke="#D8D0C0"/>
+  <g opacity="0.95">
+    <path d="M424 202V270H500V296" stroke="#78A8A1" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M800 202V270H500V296" stroke="#78A8A1" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M850 378H780" stroke="#78A8A1" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M500 490V520H200V536" stroke="#78A8A1" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M500 490V520H470V536" stroke="#78A8A1" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M500 490V520H740V536" stroke="#78A8A1" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M500 490V520H1010V536" stroke="#78A8A1" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="220" y="56" width="408" height="146" rx="26" fill="url(#primary)"/>
+    <rect x="220" y="56" width="408" height="146" rx="26" stroke="#BFD5D0"/>
+    <text x="258" y="100" fill="#0F5B54" font-family="'Avenir Next', Avenir, 'Segoe UI', sans-serif" font-size="18" font-weight="700" letter-spacing="1.2">USER INTERFACE</text>
+    <text x="258" y="142" fill="#1F2321" font-family="'Avenir Next', Avenir, 'Segoe UI', sans-serif" font-size="30" font-weight="700">Web Frontend</text>
+    <text x="258" y="178" fill="#5D645D" font-family="'Avenir Next', Avenir, 'Segoe UI', sans-serif" font-size="18">Writing, search, review, reporting, admin</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="644" y="56" width="312" height="146" rx="26" fill="url(#primary)"/>
+    <rect x="644" y="56" width="312" height="146" rx="26" stroke="#BFD5D0"/>
+    <text x="680" y="100" fill="#0F5B54" font-family="'Avenir Next', Avenir, 'Segoe UI', sans-serif" font-size="18" font-weight="700" letter-spacing="1.2">CLIENT ACCESS</text>
+    <text x="680" y="142" fill="#1F2321" font-family="'Avenir Next', Avenir, 'Segoe UI', sans-serif" font-size="30" font-weight="700">MCP Clients</text>
+    <text x="680" y="178" fill="#5D645D" font-family="'Avenir Next', Avenir, 'Segoe UI', sans-serif" font-size="18">Assistants and compatible tools</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="220" y="296" width="560" height="194" rx="30" fill="url(#primary)"/>
+    <rect x="220" y="296" width="560" height="194" rx="30" stroke="#BFD5D0"/>
+    <text x="266" y="344" fill="#0F5B54" font-family="'Avenir Next', Avenir, 'Segoe UI', sans-serif" font-size="18" font-weight="700" letter-spacing="1.2">APPLICATION LAYER</text>
+    <text x="266" y="390" fill="#1F2321" font-family="'Avenir Next', Avenir, 'Segoe UI', sans-serif" font-size="40" font-weight="700">Go Backend</text>
+    <text x="266" y="425" fill="#5D645D" font-family="'Avenir Next', Avenir, 'Segoe UI', sans-serif" font-size="20">APIs, workflows, MCP server, permission enforcement</text>
+    <text x="266" y="455" fill="#5D645D" font-family="'Avenir Next', Avenir, 'Segoe UI', sans-serif" font-size="20">Coordinates storage, semantic retrieval, and LLM usage</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="850" y="305" width="240" height="146" rx="24" fill="#FFFDF7"/>
+    <rect x="850" y="305" width="240" height="146" rx="24" stroke="#D8D0C0"/>
+    <text x="878" y="345" fill="#0F5B54" font-family="'Avenir Next', Avenir, 'Segoe UI', sans-serif" font-size="16" font-weight="700" letter-spacing="1">AUTHENTICATION</text>
+    <text x="878" y="382" fill="#1F2321" font-family="'Avenir Next', Avenir, 'Segoe UI', sans-serif" font-size="24" font-weight="700">Social Login</text>
+    <text x="878" y="414" fill="#5D645D" font-family="'Avenir Next', Avenir, 'Segoe UI', sans-serif" font-size="16">Google, Microsoft,</text>
+    <text x="878" y="437" fill="#5D645D" font-family="'Avenir Next', Avenir, 'Segoe UI', sans-serif" font-size="16">GitHub and more</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="80" y="536" width="240" height="146" rx="24" fill="#FFFDF7"/>
+    <rect x="80" y="536" width="240" height="146" rx="24" stroke="#D8D0C0"/>
+    <text x="108" y="576" fill="#0F5B54" font-family="'Avenir Next', Avenir, 'Segoe UI', sans-serif" font-size="16" font-weight="700" letter-spacing="1">DOCUMENT STORAGE</text>
+    <text x="108" y="613" fill="#1F2321" font-family="'Avenir Next', Avenir, 'Segoe UI', sans-serif" font-size="24" font-weight="700">Git Repositories</text>
+    <text x="108" y="645" fill="#5D645D" font-family="'Avenir Next', Avenir, 'Segoe UI', sans-serif" font-size="16">Documents, artefacts,</text>
+    <text x="108" y="668" fill="#5D645D" font-family="'Avenir Next', Avenir, 'Segoe UI', sans-serif" font-size="16">document permissions</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="350" y="536" width="240" height="146" rx="24" fill="#FFFDF7"/>
+    <rect x="350" y="536" width="240" height="146" rx="24" stroke="#D8D0C0"/>
+    <text x="378" y="576" fill="#0F5B54" font-family="'Avenir Next', Avenir, 'Segoe UI', sans-serif" font-size="16" font-weight="700" letter-spacing="1">APPLICATION DATA</text>
+    <text x="378" y="613" fill="#1F2321" font-family="'Avenir Next', Avenir, 'Segoe UI', sans-serif" font-size="24" font-weight="700">PostgreSQL</text>
+    <text x="378" y="645" fill="#5D645D" font-family="'Avenir Next', Avenir, 'Segoe UI', sans-serif" font-size="16">Users, sessions, admin</text>
+    <text x="378" y="668" fill="#5D645D" font-family="'Avenir Next', Avenir, 'Segoe UI', sans-serif" font-size="16">privileges, app state</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="620" y="536" width="240" height="146" rx="24" fill="#FFFDF7"/>
+    <rect x="620" y="536" width="240" height="146" rx="24" stroke="#D8D0C0"/>
+    <text x="648" y="576" fill="#0F5B54" font-family="'Avenir Next', Avenir, 'Segoe UI', sans-serif" font-size="16" font-weight="700" letter-spacing="1">HYBRID SEARCH</text>
+    <text x="648" y="613" fill="#1F2321" font-family="'Avenir Next', Avenir, 'Segoe UI', sans-serif" font-size="24" font-weight="700">pgvector</text>
+    <text x="648" y="645" fill="#5D645D" font-family="'Avenir Next', Avenir, 'Segoe UI', sans-serif" font-size="16">Default, others supported</text>
+    <text x="648" y="668" fill="#5D645D" font-family="'Avenir Next', Avenir, 'Segoe UI', sans-serif" font-size="16">for search and RAG</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="890" y="536" width="240" height="146" rx="24" fill="#FFFDF7"/>
+    <rect x="890" y="536" width="240" height="146" rx="24" stroke="#D8D0C0"/>
+    <text x="918" y="576" fill="#0F5B54" font-family="'Avenir Next', Avenir, 'Segoe UI', sans-serif" font-size="16" font-weight="700" letter-spacing="1">AI INTEGRATION</text>
+    <text x="918" y="613" fill="#1F2321" font-family="'Avenir Next', Avenir, 'Segoe UI', sans-serif" font-size="24" font-weight="700">LLM Providers</text>
+    <text x="918" y="645" fill="#5D645D" font-family="'Avenir Next', Avenir, 'Segoe UI', sans-serif" font-size="16">Drafting, analysis,</text>
+    <text x="918" y="668" fill="#5D645D" font-family="'Avenir Next', Avenir, 'Segoe UI', sans-serif" font-size="16">knowledge assistance</text>
+  </g>
+
+  <defs>
+    <linearGradient id="bg" x1="600" y1="0" x2="600" y2="730" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFDF7"/>
+      <stop offset="1" stop-color="#F3ECDD"/>
+    </linearGradient>
+    <linearGradient id="primary" x1="600" y1="72" x2="600" y2="396" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#EFF7F5"/>
+      <stop offset="1" stop-color="#FFFDF7"/>
+    </linearGradient>
+    <filter id="shadow" x="52" y="32" width="1096" height="650" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+      <feOffset dy="12"/>
+      <feGaussianBlur stdDeviation="14"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0.121569 0 0 0 0 0.137255 0 0 0 0 0.129412 0 0 0 0.1 0"/>
+      <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_1_1"/>
+      <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_1_1" result="shape"/>
+    </filter>
+  </defs>
+</svg>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Security | Admont AI</title>
+    <meta
+      name="description"
+      content="Review how Admont AI approaches access control, repository visibility, MCP access, and auditable security for team knowledge."
+    />
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-C5LNX9VQD2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-C5LNX9VQD2");
+    </script>
+    <link rel="icon" href="../favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" href="../favicon-32x32.png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+    <link rel="stylesheet" href="../styles.css" />
+    <script src="../assets/site-header.js" defer></script>
+  </head>
+  <body>
+    <admont-site-header
+      base-path="../"
+      current-page="security"
+      show-open-source="false"
+    ></admont-site-header>
+    <div class="page-shell">
+      <main>
+        <section class="page-hero">
+          <div>
+            <p class="eyebrow">Security</p>
+            <h1>Share knowledge broadly without losing control of who can see what.</h1>
+            <p class="section-lead">
+              Admont AI is designed for teams that want documentation to be
+              easy to create and easy to reuse, while still respecting access
+              boundaries, repository visibility, and assistant integrations.
+              Security needs to be understandable in practice, not just
+              described in marketing terms.
+            </p>
+            <ul class="proof-points" aria-label="Security principles">
+              <li>Authentication and session protection</li>
+              <li>Repository and file-level visibility controls</li>
+              <li>MCP access with dedicated authorization flow</li>
+              <li>Clear boundaries for shared knowledge</li>
+            </ul>
+          </div>
+          <aside class="callout-card">
+            <h2>Key security considerations</h2>
+            <ul class="callout-list">
+              <li>Protect against unauthorized access to repositories, documents, and artefacts.</li>
+              <li>Control what authorized users can access through permissions on documents and other artefacts.</li>
+              <li>Prevent information leakage by applying access control consistently across retrieval and search.</li>
+              <li>RAG search only includes knowledge the current user is actually allowed to access.</li>
+            </ul>
+          </aside>
+        </section>
+
+        <section class="section" aria-labelledby="principles-title">
+          <div class="section-heading">
+            <p class="section-label">Principles</p>
+            <h2 id="principles-title">Security is part of the workflow, not an afterthought.</h2>
+          </div>
+          <div class="metric-grid">
+            <article class="metric-card">
+              <span class="metric-title">Least Exposure</span>
+              <p>Keep access scoped so teams and assistants only see the repositories and files they should be able to use.</p>
+            </article>
+            <article class="metric-card">
+              <span class="metric-title">Auditability</span>
+              <p>Use readable repositories, clear history, and inspectable code paths instead of opaque knowledge storage.</p>
+            </article>
+            <article class="metric-card">
+              <span class="metric-title">Operational Trust</span>
+              <p>Make the security model understandable enough that technical teams can review and adapt it themselves.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" aria-labelledby="controls-title">
+          <div class="section-heading">
+            <p class="section-label">Controls</p>
+            <h2 id="controls-title">Key controls around access, repositories, and assistant integrations.</h2>
+          </div>
+          <div class="feature-grid">
+            <article class="feature-card">
+              <h3>OAuth-based sign-in</h3>
+              <p>
+                Browser authentication uses a modern authorization flow so teams
+                can establish identity before exposing protected content.
+              </p>
+            </article>
+            <article class="feature-card">
+              <h3>Protected sessions</h3>
+              <p>
+                Session handling is designed to support authenticated use without
+                treating the app like a public anonymous content surface.
+              </p>
+            </article>
+            <article class="feature-card">
+              <h3>Repository visibility boundaries</h3>
+              <p>
+                Separate public, authenticated, and administrative scopes so
+                access can reflect how knowledge should actually be shared.
+              </p>
+            </article>
+            <article class="feature-card">
+              <h3>File and path permissions</h3>
+              <p>
+                Apply path-aware controls to keep sensitive areas protected even
+                when broader repositories contain useful shared documentation.
+              </p>
+            </article>
+            <article class="feature-card">
+              <h3>MCP authorization flow</h3>
+              <p>
+                External assistant access is handled through a dedicated flow so
+                machine clients are not treated like an afterthought.
+              </p>
+            </article>
+            <article class="feature-card">
+              <h3>Reviewable behavior</h3>
+              <p>
+                Teams need a security model they can understand, validate, and
+                operate with confidence instead of relying on vague assurances.
+              </p>
+            </article>
+          </div>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <p>Admont AI helps teams share knowledge with clearer access, visibility, and assistant controls.</p>
+        <p class="footer-links">
+          <a href="../index.html">Home</a>
+          <a href="../features/">Features</a>
+          <a href="../how-it-works/">How It Works</a>
+          <a href="../architecture/">Architecture</a>
+          <a href="./">Security</a>
+          <a href="https://github.com/admont-ai">GitHub</a>
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>

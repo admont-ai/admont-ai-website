@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Architecture | Admont AI</title>
+    <meta
+      name="description"
+      content="High-level Admont AI architecture: web frontend, Go backend, Git repositories, PostgreSQL, pgvector, LLM integration, and MCP server."
+    />
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-C5LNX9VQD2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-C5LNX9VQD2");
+    </script>
+    <link rel="icon" href="../favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" href="../favicon-32x32.png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+    <link rel="stylesheet" href="../styles.css" />
+    <script src="../assets/site-header.js" defer></script>
+  </head>
+  <body>
+    <admont-site-header
+      base-path="../"
+      current-page="architecture"
+      show-open-source="false"
+    ></admont-site-header>
+    <div class="page-shell">
+      <main>
+        <section class="page-hero">
+          <div>
+            <p class="eyebrow">Architecture</p>
+            <h1>A simple architecture built from familiar parts.</h1>
+            <p class="section-lead">
+              Admont combines a web frontend, a Go backend, Git repositories,
+              PostgreSQL, semantic search, LLM integration, and an MCP server.
+              This page shows the high-level shape only. The docs contain the
+              implementation details.
+            </p>
+            <ul class="proof-points" aria-label="Architecture summary">
+              <li>Web frontend and MCP clients</li>
+              <li>Go backend with MCP server</li>
+              <li>Social login via Google, Microsoft, GitHub, and more</li>
+              <li>Git repositories for documents and artefacts</li>
+              <li>PostgreSQL for application data</li>
+              <li>pgvector for semantic search and RAG</li>
+              <li>LLM integration</li>
+            </ul>
+          </div>
+          <aside class="callout-card">
+            <h2>What lives where</h2>
+            <ul class="callout-list">
+              <li>Documents, artefacts, and document access permissions are stored in Git repositories.</li>
+              <li>PostgreSQL stores application data such as users, sessions, and administrative privileges, but not the documents themselves.</li>
+              <li>Social login flows through the web frontend and the Go backend using providers such as Google, Microsoft, and GitHub.</li>
+              <li>The Go backend also hosts the MCP server for compatible clients and tools.</li>
+              <li>Hybrid search combines classic text search with semantic vector search for both user queries and RAG-assisted AI questions across the knowledge base.</li>
+            </ul>
+          </aside>
+        </section>
+
+        <section class="section section-tight" aria-labelledby="diagram-title">
+          <div class="section-heading">
+            <p class="section-label">Overview</p>
+            <h2 id="diagram-title">High-level architecture diagram</h2>
+          </div>
+          <p class="section-lead">
+            The web frontend and MCP clients talk to the Go backend. The
+            backend includes the MCP server and coordinates authentication,
+            storage, search, permissions, and LLM usage.
+          </p>
+          <div class="diagram-panel">
+            <img
+              class="diagram-image"
+              src="../assets/architecture-overview-diagram.svg"
+              alt="Architecture diagram showing web frontend and MCP clients at the top, the Go backend in the middle, a social login box beside the backend connected to the backend, and external services below including Git repositories, PostgreSQL, pgvector, and LLM providers."
+            />
+          </div>
+        </section>
+
+        <section class="section" aria-labelledby="parts-title">
+          <div class="section-heading">
+            <p class="section-label">Architecture Principles</p>
+            <h2 id="parts-title">Each part has a clear responsibility.</h2>
+          </div>
+          <div class="feature-grid">
+            <article class="feature-card">
+              <h3>Modern web tech stack</h3>
+              <p>
+                A modern React frontend handles the interactive web experience.
+                A Go backend provides the APIs, workflows, and high scalability.
+              </p>
+            </article>
+            <article class="feature-card">
+              <h3>Authentication crosses both layers</h3>
+              <p>
+                Social login starts in the frontend and completes through the
+                backend, which manages identity, sessions, and provider
+                integration.
+              </p>
+            </article>
+            <article class="feature-card">
+              <h3>Documents stay outside the database</h3>
+              <p>
+                Git repositories hold the actual documents, artefacts, and
+                document access permissions, which keeps the content portable
+                and versioned in familiar tooling.
+              </p>
+            </article>
+            <article class="feature-card">
+              <h3>Application state has its own database</h3>
+              <p>
+                PostgreSQL stores structured application data such as users,
+                sessions, and administrative privileges without turning the
+                document layer into database rows.
+              </p>
+            </article>
+            <article class="feature-card">
+              <h3>Hybrid search and RAG</h3>
+              <p>
+                Combines keyword and semantic search. Supports pgvector
+                natively, as well as providers like Elasticsearch and
+                Typesense. Used for both user search and RAG across the
+                knowledge base.
+              </p>
+            </article>
+            <article class="feature-card">
+              <h3>Flexible LLM integration</h3>
+              <p>
+                Simple integration with one or more LLM providers. Major
+                providers are supported, as well as open-source models.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" aria-labelledby="git-store-title">
+          <div class="section-heading">
+            <p class="section-label">Git As Storage</p>
+            <h2 id="git-store-title">Git is a natural fit for documents and artefacts.</h2>
+          </div>
+          <p class="section-lead">
+            Many document management systems store content in a database.
+            Admont does not. Git is used as the document store because it is a
+            natural fit for text documents, version history, review workflows,
+            and long-term portability.
+          </p>
+          <div class="feature-grid">
+            <article class="feature-card">
+              <h3>Built-in versioning</h3>
+              <p>
+                Git already solves change tracking, history, diffs, branches,
+                and collaboration around documents and artefacts.
+              </p>
+            </article>
+            <article class="feature-card">
+              <h3>Works with major providers</h3>
+              <p>
+                All major public Git providers are supported, so teams can use
+                existing GitHub, GitLab, or similar environments.
+              </p>
+            </article>
+            <article class="feature-card">
+              <h3>Self-hosting remains possible</h3>
+              <p>
+                Teams can also use a self-hosted Git server when security,
+                compliance, or internal deployment requirements make that the
+                better choice.
+              </p>
+            </article>
+            <article class="feature-card">
+              <h3>Portable beyond Admont</h3>
+              <p>
+                The repositories can be accessed by many tools, not only
+                Admont. That keeps the document layer open, inspectable, and
+                easy to integrate into existing workflows.
+              </p>
+            </article>
+            <article class="feature-card">
+              <h3>No document lock-in</h3>
+              <p>
+                Content stays in normal repositories instead of being trapped in
+                a proprietary document database that only one application can
+                interpret properly.
+              </p>
+            </article>
+            <article class="feature-card">
+              <h3>Natural fit for knowledge operations</h3>
+              <p>
+                A Git-based store matches how teams already manage structured
+                files, review changes, automate pipelines, and reuse content
+                across tools.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" aria-labelledby="details-title">
+          <div class="section-heading">
+            <p class="section-label">Details</p>
+            <h2 id="details-title">Need the deeper implementation detail?</h2>
+          </div>
+          <div class="open-source-grid">
+            <div class="open-source-copy">
+              <p class="section-lead">
+                This page is intentionally high level. The detailed architecture,
+                backend, frontend, search, and MCP behavior are documented in
+                the docs.
+              </p>
+            </div>
+            <div class="link-panel">
+              <a href="../docs/Architecture/System%20Overview/">System Overview</a>
+              <a href="../docs/Architecture/Backend/">Backend</a>
+              <a href="../docs/Architecture/Frontend/">Frontend</a>
+              <a href="../docs/Architecture/Search%20Engine/">Search Engine</a>
+              <a href="../docs/Architecture/MCP%20Server/">MCP Server</a>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <p>Admont AI combines familiar infrastructure pieces into one knowledge and retrieval workflow.</p>
+        <p class="footer-links">
+          <a href="../index.html">Home</a>
+          <a href="../features/">Features</a>
+          <a href="../how-it-works/">How It Works</a>
+          <a href="./">Architecture</a>
+          <a href="../security/">Security</a>
+          <a href="https://github.com/admont-ai">GitHub</a>
+          <a href="../docs/">Docs</a>
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>
