@@ -4,3 +4,10 @@ __pycache__/
 .cache/
 .mypy_cache/
 .pytest_cache/
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+.env*
+!.env.example
