@@ -6,12 +6,40 @@ class AdmontSiteHeader extends HTMLElement {
 
     this.ensureStyles();
 
-    const homeUrl = this.getAttribute("home-url") || "#top";
-    const sectionRoot = this.getAttribute("section-root") || "";
-    const docsUrl = this.getAttribute("docs-url") || "docs/";
-    const iconUrl = this.getAttribute("icon-url") || "assets/admont-ai-icon.png";
+    const sectionRoot = this.getAttribute("section-root");
+    const basePath = this.getAttribute("base-path") || sectionRoot || "./";
+    const currentPage = this.getAttribute("current-page") || "";
+    const homeUrl = this.getAttribute("home-url") || `${basePath}index.html`;
+    const docsUrl = this.getAttribute("docs-url") || `${basePath}docs/`;
+    const iconUrl =
+      this.getAttribute("icon-url") || `${basePath}assets/admont-ai-icon.png`;
+    const openSourceUrl =
+      this.getAttribute("open-source-url") || `${basePath}index.html#open-source`;
+    const showOpenSource = this.getAttribute("show-open-source") !== "false";
     const actionNodes = Array.from(this.querySelectorAll('[slot="actions"]'));
     const actions = document.createElement("div");
+    const navItems = [
+      { id: "features", label: "Features", href: `${basePath}features/` },
+      {
+        id: "how-it-works",
+        label: "How It Works",
+        href: `${basePath}how-it-works/`,
+      },
+      {
+        id: "architecture",
+        label: "Architecture",
+        href: `${basePath}architecture/`,
+      },
+      { id: "security", label: "Security", href: `${basePath}security/` },
+      { id: "docs", label: "Docs", href: docsUrl },
+    ];
+    if (showOpenSource) {
+      navItems.splice(4, 0, {
+        id: "open-source",
+        label: "Open Source",
+        href: openSourceUrl,
+      });
+    }
 
     actions.className = "site-header-actions";
     for (const node of actionNodes) {
@@ -32,11 +60,18 @@ class AdmontSiteHeader extends HTMLElement {
           <span class="brand-text">Admont AI</span>
         </a>
         <nav class="site-nav" aria-label="Primary">
-          <a href="${sectionRoot}#features">Features</a>
-          <a href="${sectionRoot}#architecture">How It Works</a>
-          <a href="${sectionRoot}#security">Security</a>
-          <a href="${sectionRoot}#open-source">Open Source</a>
-          <a href="${docsUrl}">Docs</a>
+          ${navItems
+            .map(
+              (item) => `
+                <a
+                  href="${item.href}"
+                  ${item.id === currentPage ? 'aria-current="page"' : ""}
+                >
+                  ${item.label}
+                </a>
+              `,
+            )
+            .join("")}
         </nav>
       </header>
     `;
@@ -122,6 +157,11 @@ class AdmontSiteHeader extends HTMLElement {
       .site-nav a {
         color: #5d645d;
         text-decoration: none;
+      }
+
+      .site-nav a[aria-current="page"] {
+        color: #134e4a;
+        font-weight: 700;
       }
 
       .site-nav a:hover,

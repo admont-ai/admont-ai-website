@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Admont AI</title>
+    <title>Admont AI | Open-Source Knowledge Operations</title>
     <meta
       name="description"
-      content="Admont AI is a free and open-source RAG-first documentation system where AI-assisted writing creates the knowledge base for future documentation."
+      content="Admont AI is an open-source knowledge operations platform for documentation, collected company data, analysis, and AI-generated reports without hidden paid features."
     />
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-C5LNX9VQD2"></script>
     <script>
@@ -25,229 +25,149 @@
     <script src="assets/site-header.js" defer></script>
   </head>
   <body>
-    <admont-site-header></admont-site-header>
+    <admont-site-header base-path="./" current-page="home"></admont-site-header>
     <div class="page-shell">
-      <main id="top">
+      <main>
         <section class="hero">
           <div class="hero-copy">
-            <p class="eyebrow">Free under MIT. Open source by default.</p>
-            <h1>Documentation that compounds through AI.</h1>
+            <p class="eyebrow">MIT licensed. Self-hostable. No paid edition.</p>
+            <h1>Knowledge that compounds through AI.</h1>
             <p class="hero-text">
-              Admont AI is a RAG-first documentation system. Teams create
-              documentation with AI assistance, then use that documentation as
-              the retrieval base for the next round of writing, answers, and
-              knowledge work.
+              Admont AI helps teams turn scattered know-how, documentation, and
+              operational data into reusable knowledge, AI-assisted analysis,
+              and generated reports. The project is open source from top to
+              bottom, so there are no hidden premium features waiting behind a
+              sales conversation.
             </p>
             <div class="hero-actions">
               <a class="button button-primary" href="https://github.com/admont-ai"
                 >View Source</a
               >
-              <a
-                class="button button-secondary"
-                href="docs/"
-                >Read Docs</a
-              >
+              <a class="button button-secondary" href="docs/">Read Docs</a>
             </div>
-            <ul class="proof-points" aria-label="Product highlights">
-              <li>MIT licensed</li>
-              <li>AI-assisted documentation generation</li>
-              <li>RAG on your own knowledge base</li>
-              <li>Built for teams and organizations</li>
+            <ul class="proof-points" aria-label="Business highlights">
+              <li>Open-source project under MIT</li>
+              <li>No hidden paid features</li>
+              <li>Knowledge stays portable and inspectable</li>
+              <li>Built for teams, not solo prompt experiments</li>
             </ul>
           </div>
 
-          <aside class="hero-panel" aria-label="Admont AI summary">
+          <aside class="hero-rail" aria-label="Business outcomes">
             <div class="panel-card">
-              <p class="panel-label">Why teams use it</p>
+              <p class="panel-label">What teams get</p>
               <ul class="panel-list">
-                <li>Generate new docs from what your team already knows</li>
-                <li>Turn each approved document into future retrieval context</li>
-                <li>Keep the loop auditable in Markdown and Git</li>
-                <li>Expose the same knowledge base to AI assistants through MCP</li>
+                <li>Faster production of internal docs, reports, and operating guides</li>
+                <li>One growing source of truth for people and AI assistants</li>
+                <li>Lower platform risk because your knowledge stays portable</li>
+              </ul>
+            </div>
+            <div class="panel-card panel-contrast">
+              <p class="panel-label">Open source means</p>
+              <ul class="panel-list">
+                <li>No feature gating between free and enterprise tiers</li>
+                <li>No proprietary content format holding your docs hostage</li>
+                <li>No blocked integrations if your team wants to extend it</li>
               </ul>
             </div>
           </aside>
         </section>
 
-        <section class="section intro" aria-labelledby="intro-title">
-          <div class="section-heading">
-            <p class="section-label">Product</p>
-            <h2 id="intro-title">A new documentation workflow, not just a new editor.</h2>
-          </div>
-          <p class="section-lead">
-            The core idea behind Admont AI is recursive documentation
-            generation: AI helps create documentation, that documentation is
-            stored as structured knowledge, and the accumulated knowledge base
-            becomes the source for better future documentation. Git and
-            Markdown are not the product story on their own. They are the best
-            substrate for keeping that loop transparent, durable, and easy to
-            evolve.
+        <section class="banner" id="open-source" aria-label="Open-source commitment">
+          <p>
+            Admont AI is an <strong>open-source project</strong>. The same code,
+            workflows, and integrations shown here are available in the public
+            repositories. There is no hidden commercial version with the real
+            features locked away.
           </p>
         </section>
 
-        <section class="section" id="features" aria-labelledby="features-title">
+        <section class="section" aria-labelledby="advantages-title">
           <div class="section-heading">
-            <p class="section-label">Features</p>
-            <h2 id="features-title">Everything is built around the RAG authoring loop.</h2>
+            <p class="section-label">Business Advantages</p>
+            <h2 id="advantages-title">Designed to make documentation operationally useful.</h2>
           </div>
           <div class="feature-grid">
             <article class="feature-card">
-              <h3>AI-assisted generation</h3>
+              <h3>Reduce repeated explanations</h3>
               <p>
-                Generate new documentation from prompts, existing documents,
-                and retrieved repository context instead of writing every page
-                from scratch.
+                Capture decisions, procedures, and internal know-how once, then
+                reuse them across teams and assistant workflows instead of
+                answering the same questions from scratch.
               </p>
             </article>
             <article class="feature-card">
-              <h3>Compounding knowledge base</h3>
+              <h3>Improve speed without losing control</h3>
               <p>
-                Each accepted document becomes material for later retrieval, so
-                the system improves as the documentation corpus grows.
+                AI helps draft and refine content, but your team still owns
+                review, publishing, repository structure, and the final record.
               </p>
             </article>
             <article class="feature-card">
-              <h3>Hybrid retrieval</h3>
+              <h3>Avoid lock-in risk</h3>
               <p>
-                Combine full-text and semantic search to pull the most relevant
-                context into answers, generation, and editing flows.
-              </p>
-            </article>
-            <article class="feature-card">
-              <h3>Markdown as working memory</h3>
-              <p>
-                Keep documentation in plain Markdown so generated knowledge
-                stays durable, inspectable, and easy to reuse outside the app.
-              </p>
-            </article>
-            <article class="feature-card">
-              <h3>Team review and history</h3>
-              <p>
-                Review, diff, publish, and recover generated content with a
-                workflow that treats documentation as a shared organizational
-                asset.
-              </p>
-            </article>
-            <article class="feature-card">
-              <h3>MCP and assistant access</h3>
-              <p>
-                Expose the same retrieval-ready documentation base to external
-                AI assistants through the Model Context Protocol.
+                Your documentation remains portable in standard formats, which
+                keeps migration cost and vendor dependency lower than
+                closed-platform knowledge tools.
               </p>
             </article>
           </div>
         </section>
 
-        <section
-          class="section architecture"
-          id="architecture"
-          aria-labelledby="architecture-title"
-        >
+        <section class="section" aria-labelledby="why-title">
           <div class="section-heading">
-            <p class="section-label">How It Works</p>
-            <h2 id="architecture-title">Generate, retrieve, refine, repeat.</h2>
+            <p class="section-label">Why Admont</p>
+            <h2 id="why-title">A documentation system that compounds instead of decaying.</h2>
           </div>
-          <div class="architecture-grid">
-            <div class="architecture-copy">
+          <p class="section-lead">
+            Most documentation tools store content. Admont is built to make that
+            content more valuable over time. Each approved page strengthens the
+            next answer, the next draft, and the next team handoff.
+          </p>
+          <div class="metric-grid">
+            <article class="metric-card">
+              <span class="metric-title">Shared memory</span>
+              <p>Give new hires, support teams, operators, and managers a consistent knowledge base.</p>
+            </article>
+            <article class="metric-card">
+              <span class="metric-title">AI-ready by default</span>
+              <p>Make the same documentation available for retrieval, drafting, and assistant access.</p>
+            </article>
+            <article class="metric-card">
+              <span class="metric-title">Transparent operations</span>
+              <p>Keep history, ownership, and review in tools your team can inspect and control.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section open-source-section" aria-labelledby="source-title">
+          <div class="section-heading">
+            <p class="section-label">Open Source</p>
+            <h2 id="source-title">No hidden paid features. No closed premium layer.</h2>
+          </div>
+          <div class="open-source-grid">
+            <div class="open-source-copy">
               <p class="section-lead">
-                Admont AI combines models with retrieval over your own
-                repository so new documentation can be grounded in prior work
-                instead of generated in a vacuum.
+                Admont AI is openly developed, MIT licensed, and intended to be
+                adopted without a pricing trap. If your team needs to inspect the
+                code, deploy it yourself, change the workflow, or integrate with
+                your own stack, that is part of the product story, not an
+                enterprise upsell.
               </p>
-              <div class="stack-list">
-                <div>
-                  <h3>Generate</h3>
-                  <p>Writers and teams create or refine docs with integrated AI assistance.</p>
-                </div>
-                <div>
-                  <h3>Retrieve</h3>
-                  <p>Hybrid search brings the most relevant existing knowledge into the workflow.</p>
-                </div>
-                <div>
-                  <h3>Store</h3>
-                  <p>Approved output lives in Markdown and Git so it stays portable and auditable.</p>
-                </div>
-                <div>
-                  <h3>Reuse</h3>
-                  <p>The expanded corpus becomes the retrieval layer for the next generation cycle.</p>
-                </div>
-              </div>
             </div>
-            <div class="diagram-card" aria-label="Architecture summary">
-              <div class="diagram-node">AI-Assisted Authoring</div>
-              <div class="diagram-line"></div>
-              <div class="diagram-row">
-                <div class="diagram-node">RAG Search</div>
-                <div class="diagram-node">Markdown + Git</div>
-              </div>
-              <div class="diagram-row">
-                <div class="diagram-node">LLMs</div>
-                <div class="diagram-node">MCP Reuse</div>
-              </div>
+            <div class="link-panel">
+              <a href="https://github.com/admont-ai">GitHub organization</a>
+              <a href="https://github.com/admont-ai/admont-ai-ui">UI repository</a>
+              <a href="https://github.com/admont-ai/admont-ai-api">API repository</a>
+              <a href="https://github.com/admont-ai/admont-ai-docs/blob/main/LICENSE"
+                >MIT license</a
+              >
+              <a href="docs/">Documentation</a>
             </div>
           </div>
         </section>
 
-        <section class="section security" id="security" aria-labelledby="security-title">
-          <div class="section-heading">
-            <p class="section-label">Security</p>
-            <h2 id="security-title">Built for teams that need controlled knowledge sharing.</h2>
-          </div>
-          <p class="section-lead">
-            Admont AI is designed for teams and organizations where
-            documentation should be easy to generate and reuse, but never lose
-            on access control. Security runs through the full workflow:
-            authentication, repository visibility, file-level permissions, and
-            MCP access for external assistants.
-          </p>
-          <div class="feature-grid">
-            <article class="feature-card">
-              <h3>OAuth with protected sessions</h3>
-              <p>
-                Browser sign-in uses OAuth 2.0 with PKCE, short-lived auth
-                state, and signed JWT sessions for authenticated access.
-              </p>
-            </article>
-            <article class="feature-card">
-              <h3>Repository and role controls</h3>
-              <p>
-                Separate public, authenticated, and admin-only operations so
-                teams can expose the right knowledge to the right people.
-              </p>
-            </article>
-            <article class="feature-card">
-              <h3>File-level permissions</h3>
-              <p>
-                Apply path-based permissions for files and folders with owner,
-                user, group, and inherited defaults.
-              </p>
-            </article>
-            <article class="feature-card">
-              <h3>Secure MCP access</h3>
-              <p>
-                External assistants connect through a dedicated MCP OAuth flow
-                with dynamic client registration and PKCE-protected token
-                exchange.
-              </p>
-            </article>
-            <article class="feature-card">
-              <h3>Read-only and dotfile protection</h3>
-              <p>
-                Lock repositories down for safe consumption and block access to
-                sensitive internal paths like Git metadata and permission files.
-              </p>
-            </article>
-            <article class="feature-card">
-              <h3>Low-leakage responses</h3>
-              <p>
-                Permission denials can resolve as not found, helping reduce
-                path enumeration and accidental disclosure.
-              </p>
-            </article>
-          </div>
-        </section>
-
-        <section class="section homage" id="homage" aria-labelledby="homage-title">
+        <section class="section homage" aria-labelledby="homage-title">
           <div class="section-heading">
             <p class="section-label">Homage</p>
             <h2 id="homage-title">Named in tribute to the Admont Abbey library.</h2>
@@ -268,44 +188,18 @@
             </a>
           </p>
         </section>
-
-        <section
-          class="section open-source"
-          id="open-source"
-          aria-labelledby="open-source-title"
-        >
-          <div class="section-heading">
-            <p class="section-label">Open Source</p>
-            <h2 id="open-source-title">Free to use, inspect, and adapt.</h2>
-          </div>
-          <div class="open-source-grid">
-            <div class="open-source-copy">
-              <p class="section-lead">
-                Admont AI is MIT licensed. You can run it yourself, inspect the
-                code, and adapt it to your own stack without a paid gate in the
-                middle.
-              </p>
-            </div>
-            <div class="link-panel">
-              <a href="https://github.com/admont-ai">GitHub org</a>
-              <a href="docs/">Documentation</a>
-              <a href="https://github.com/admont-ai/admont-ai-api">API</a>
-              <a href="https://github.com/admont-ai/admont-ai-ui">UI</a>
-              <a href="https://github.com/admont-ai/admont-ai-docs/blob/main/LICENSE"
-                >MIT License</a
-              >
-            </div>
-          </div>
-        </section>
       </main>
 
       <footer class="site-footer">
-        <p>Admont AI is an open-source RAG-first documentation system for AI-assisted knowledge creation.</p>
+        <p>Admont AI is an open-source knowledge operations platform with no hidden paid feature gate.</p>
         <p class="footer-links">
+          <a href="./index.html">Home</a>
+          <a href="features/">Features</a>
+          <a href="how-it-works/">How It Works</a>
+          <a href="architecture/">Architecture</a>
+          <a href="security/">Security</a>
           <a href="https://github.com/admont-ai">GitHub</a>
           <a href="docs/">Docs</a>
-          <a href="https://github.com/admont-ai/admont-ai-api">API</a>
-          <a href="https://github.com/admont-ai/admont-ai-ui">UI</a>
         </p>
       </footer>
     </div>

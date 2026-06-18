@@ -43,6 +43,7 @@ p,
 h1,
 h2,
 h3,
+span,
 ul {
   margin: 0;
 }
@@ -58,18 +59,17 @@ ul {
   padding: 0 0 2.5rem;
 }
 
-.site-footer,
-.hero,
-.section {
-  position: relative;
+main {
+  display: grid;
+  gap: 1.4rem;
 }
 
 .hero {
   display: grid;
-  grid-template-columns: minmax(0, 1.6fr) minmax(280px, 0.95fr);
+  grid-template-columns: minmax(0, 1.45fr) minmax(300px, 0.95fr);
   gap: 1.5rem;
   padding: 4.5rem 0 2rem;
-  align-items: end;
+  align-items: start;
 }
 
 .eyebrow,
@@ -83,7 +83,7 @@ ul {
 }
 
 .hero h1 {
-  max-width: 10ch;
+  max-width: 11ch;
   margin-top: 0.7rem;
   font-size: clamp(3rem, 9vw, 5.6rem);
   line-height: 0.94;
@@ -134,8 +134,9 @@ ul {
 
 .proof-points li,
 .panel-list li,
+.metric-card,
 .link-panel a,
-.diagram-node {
+.route-card {
   border: 1px solid var(--line);
   background: rgba(255, 252, 245, 0.8);
 }
@@ -147,14 +148,19 @@ ul {
   font-size: 0.94rem;
 }
 
-.hero-panel {
-  display: flex;
+.hero-rail {
+  display: grid;
+  gap: 1rem;
+  align-content: start;
 }
 
 .panel-card,
 .feature-card,
-.diagram-card,
+.metric-card,
+.process-card,
 .link-panel,
+.route-card,
+.banner,
 .section {
   border: 1px solid var(--line);
   background: var(--surface);
@@ -180,8 +186,31 @@ ul {
 
 .section {
   padding: 1.7rem;
-  margin-top: 1.4rem;
   border-radius: var(--radius-lg);
+}
+
+.section-tight {
+  padding: 1.3rem;
+}
+
+.banner {
+  padding: 1.05rem 1.25rem;
+  border-radius: var(--radius-md);
+  background: linear-gradient(
+    90deg,
+    rgba(15, 118, 110, 0.12),
+    rgba(255, 250, 240, 0.86)
+  );
+}
+
+.banner p {
+  max-width: 62rem;
+  color: var(--muted);
+  font-size: 0.98rem;
+}
+
+.banner strong {
+  color: var(--accent-strong);
 }
 
 .section-heading h2 {
@@ -234,25 +263,31 @@ ul {
 }
 
 .feature-card h3,
-.stack-list h3 {
+.process-card h3,
+.route-card h3 {
   font-size: 1.05rem;
   letter-spacing: -0.03em;
 }
 
 .feature-card p,
-.stack-list p,
+.metric-card p,
+.process-card p,
+.route-card p,
 .open-source-copy p,
 .site-footer,
-.footer-links {
+.footer-links,
+.panel-card p,
+.banner p {
   color: var(--muted);
 }
 
 .feature-card p,
-.stack-list p {
+.metric-card p,
+.process-card p,
+.route-card p {
   margin-top: 0.55rem;
 }
 
-.architecture-grid,
 .open-source-grid {
   display: grid;
   grid-template-columns: minmax(0, 1.15fr) minmax(260px, 0.85fr);
@@ -260,39 +295,129 @@ ul {
   margin-top: 1.4rem;
 }
 
-.stack-list {
+.metric-grid,
+.route-grid,
+.process-grid {
   display: grid;
   gap: 1rem;
-  margin-top: 1.3rem;
+  margin-top: 1.4rem;
 }
 
-.diagram-card {
-  display: grid;
-  align-content: center;
-  gap: 1rem;
-  padding: 1.3rem;
-  border-radius: var(--radius-lg);
-  background:
-    linear-gradient(180deg, rgba(255, 250, 240, 0.96), rgba(245, 241, 232, 0.92));
+.metric-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
-.diagram-node {
-  padding: 1rem;
+.metric-card,
+.route-card,
+.process-card {
+  padding: 1.25rem;
   border-radius: var(--radius-md);
-  text-align: center;
+}
+
+.metric-title,
+.route-label {
+  color: var(--accent-strong);
+  font-size: 0.8rem;
   font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
-.diagram-line {
-  height: 1px;
-  background: var(--line);
-  margin: -0.2rem 18% 0;
+.route-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
-.diagram-row {
+.route-card {
+  display: block;
+}
+
+.route-card h3 {
+  margin-top: 0.7rem;
+}
+
+.process-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.process-card span {
+  display: inline-block;
+  color: var(--accent-strong);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.page-hero {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.8rem;
+  grid-template-columns: minmax(0, 1.35fr) minmax(260px, 0.9fr);
+  gap: 1.2rem;
+  padding: 3.6rem 0 1.2rem;
+  align-items: start;
+}
+
+.page-hero h1 {
+  max-width: 12ch;
+  margin-top: 0.7rem;
+  font-size: clamp(2.6rem, 7vw, 4.6rem);
+  line-height: 0.96;
+  letter-spacing: -0.05em;
+}
+
+.page-hero .section-lead {
+  margin-top: 1.2rem;
+}
+
+.page-hero .proof-points {
+  margin-top: 1.4rem;
+}
+
+.callout-card {
+  padding: 1.3rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 250, 240, 0.96),
+    rgba(245, 241, 232, 0.92)
+  );
+  box-shadow: var(--shadow);
+}
+
+.callout-card h2,
+.callout-card h3 {
+  font-size: 1.15rem;
+  letter-spacing: -0.03em;
+}
+
+.callout-card p {
+  margin-top: 0.7rem;
+  color: var(--muted);
+}
+
+.callout-list {
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.callout-list li {
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: rgba(255, 252, 245, 0.78);
+  color: var(--muted);
+}
+
+.diagram-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-top: 1.4rem;
+}
+
+.diagram-panel {
+  margin-top: 1.4rem;
 }
 
 .link-panel {
@@ -308,6 +433,14 @@ ul {
   padding: 0.95rem 1rem;
   border-radius: var(--radius-md);
   font-weight: 600;
+}
+
+.panel-contrast {
+  background: linear-gradient(
+    180deg,
+    rgba(15, 118, 110, 0.08),
+    rgba(255, 252, 245, 0.82)
+  );
 }
 
 .site-footer {
@@ -327,12 +460,15 @@ ul {
 
 @media (max-width: 960px) {
   .hero,
-  .architecture-grid,
+  .page-hero,
   .open-source-grid {
     grid-template-columns: 1fr;
   }
 
-  .feature-grid {
+  .feature-grid,
+  .metric-grid,
+  .route-grid,
+  .process-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -351,23 +487,34 @@ ul {
     width: calc(100% - 16px);
   }
 
-  .hero {
+  .hero,
+  .page-hero {
     padding-top: 3rem;
   }
 
-  .hero h1 {
+  .hero h1,
+  .page-hero h1 {
     font-size: clamp(2.5rem, 16vw, 4rem);
   }
 
   .section,
   .panel-card,
-  .diagram-card,
+  .metric-card,
+  .process-card,
+  .route-card,
+  .callout-card,
   .link-panel {
     padding: 1.15rem;
   }
 
+  .section-tight {
+    padding: 1.15rem;
+  }
+
   .feature-grid,
-  .diagram-row {
+  .metric-grid,
+  .route-grid,
+  .process-grid {
     grid-template-columns: 1fr;
   }
 }
